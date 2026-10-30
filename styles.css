@@ -2713,19 +2713,28 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
 .hero-stack-sticky {
   position: relative;
   width: 100%;
-  padding-top: 5rem;
-  padding-bottom: 3.5rem;
+  height: 100vh;
+  max-height: 100vh;
+  padding-top: 4.8rem;
+  padding-bottom: 2rem;
+  padding-inline: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .hero-cinema-container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1120px;
+  height: calc(100vh - 7rem);
+  max-height: calc(100vh - 7rem);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin: 0 auto;
 }
 
 .hero-cinema-topbar {
@@ -2772,12 +2781,16 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  max-height: 78vh;
-  border-radius: 24px;
+  flex: 1 1 auto;
+  max-height: calc(100vh - 13.5rem);
+  max-width: min(1060px, calc((100vh - 13.5rem) * 16 / 9));
+  margin: 0 auto;
+  border-radius: 20px;
   overflow: hidden;
   background: #000000;
-  border: 1px solid rgba(253, 250, 227, 0.2);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(253, 250, 227, 0.22);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95);
+  cursor: pointer;
 }
 
 .hero-cinema-slide {
@@ -2808,8 +2821,8 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
 .hero-slide-caption {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 3rem 2rem 1.8rem;
-  background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 7, 0.92) 100%);
+  padding: 1.8rem 1.8rem 1.25rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 7, 0.88) 100%);
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -2895,7 +2908,7 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
 /* Floating Corner HUD Navigation */
 .jesper-hud-top {
   position: absolute;
-  top: 24px;
+  top: 75px;
   left: 0;
   right: 0;
   padding-inline: max(2rem, 4vw);
@@ -2984,9 +2997,9 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
 .jesper-carousel-stage {
   position: relative;
   width: 100%;
-  height: 64vh;
-  max-height: 580px;
-  min-height: 420px;
+  height: 52vh;
+  max-height: 480px;
+  min-height: 360px;
   display: flex;
   align-items: center;
   z-index: 10;
@@ -3006,10 +3019,10 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
 /* The Cards with Original Video Aspect Ratios (9:16 and 16:9) */
 .jesper-card {
   position: relative;
-  height: 56vh;
-  max-height: 540px;
-  min-height: 380px;
-  border-radius: 24px;
+  height: 48vh;
+  max-height: 450px;
+  min-height: 330px;
+  border-radius: 22px;
   overflow: hidden;
   background: #09090c;
   border: 1px solid rgba(253, 250, 227, 0.16);
@@ -3017,23 +3030,23 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
   flex-shrink: 0;
   cursor: pointer;
   outline: none;
-  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.35s ease, border-color 0.28s ease;
-  transform-style: preserve-3d;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
   will-change: transform;
 }
 
 /* 16:9 Cinema Widescreen Slide */
 .jesper-card.ratio-cinema {
   aspect-ratio: 16 / 9;
-  width: calc(56vh * 16 / 9);
-  max-width: 960px;
+  width: calc(48vh * 16 / 9);
+  max-width: 800px;
 }
 
 /* 9:16 Vertical Reel Slide */
 .jesper-card.ratio-vertical {
   aspect-ratio: 9 / 16;
-  width: calc(56vh * 9 / 16);
-  max-width: 310px;
+  width: calc(48vh * 9 / 16);
+  max-width: 255px;
 }
 
 .jesper-card:hover,
@@ -3129,15 +3142,97 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
 
 @media (max-width: 768px) {
   .jesper-card {
-    height: 48vh;
-  }
+  position: relative;
+  height: 48vh;
+  max-height: 450px;
+  min-height: 330px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #09090c;
+  border: 1px solid rgba(253, 250, 227, 0.16);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.88);
+  flex-shrink: 0;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  will-change: transform;
+}
   .jesper-card.ratio-cinema {
-    width: calc(48vh * 16 / 9);
-  }
+  aspect-ratio: 16 / 9;
+  width: calc(48vh * 16 / 9);
+  max-width: 800px;
+}
   .jesper-card.ratio-vertical {
-    width: calc(48vh * 9 / 16);
-  }
+  aspect-ratio: 9 / 16;
+  width: calc(48vh * 9 / 16);
+  max-width: 255px;
+}
   .jesper-carousel-stage {
-    height: 54vh;
-  }
+  position: relative;
+  width: 100%;
+  height: 52vh;
+  max-height: 480px;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+}
+
+/* Interactive Sound Cues & Visual Badges */
+.hero-click-sound-cue {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 15;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(5, 5, 7, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(253, 250, 227, 0.3);
+  color: var(--cream);
+  padding: 0.42rem 0.85rem;
+  border-radius: 9999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-cinema-viewport:hover .hero-click-sound-cue {
+  background: var(--cream);
+  color: #050507;
+  transform: translateY(-2px);
+}
+
+.card-sound-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(5, 5, 7, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(253, 250, 227, 0.22);
+  color: var(--cream-90);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  font-weight: 700;
+  padding: 0.28rem 0.6rem;
+  border-radius: 9999px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.jesper-card:hover .card-sound-tag {
+  background: var(--cream);
+  color: #050507;
 }

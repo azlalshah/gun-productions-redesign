@@ -905,7 +905,20 @@ function openCinemaModal(index) {
 }
 
 function openVideoById(videoId) {
-  const idxInAll = VIDEO_VAULT.findIndex((v) => v.id === videoId);
+  const ALIAS_MAP = {
+    'timar-security': 'timar-ad',
+    'timar': 'timar-ad',
+    'vdvelde-waterplanten': 'vdvelde-bv',
+    'vdvelde': 'vdvelde-bv',
+    'short-fpv-drone': 'fpv-oneshot',
+    'fpv-drone': 'fpv-oneshot',
+    'antarctica': 'antarctica-sea-shepherd',
+    'azura': 'azura-ad',
+    'roy': 'roy-poolboy',
+    'switzerland': 'skiing-switzerland'
+  };
+  const resolvedId = ALIAS_MAP[videoId] || videoId;
+  const idxInAll = VIDEO_VAULT.findIndex((v) => v.id === resolvedId || v.id === videoId);
   if (idxInAll === -1) return;
   currentModalList = VIDEO_VAULT;
   openCinemaModal(idxInAll);
@@ -932,7 +945,8 @@ function populateModalItem(item) {
   if (item.type === 'youtube') {
     stage.innerHTML = `
       <iframe
-        src="https://www.youtube.com/embed/${item.ytId}?autoplay=1&rel=0&modestbranding=1"
+        id="cinemaModalIframe"
+        src="https://www.youtube.com/embed/${item.ytId}?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1"
         title="${item.title}"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
@@ -940,8 +954,17 @@ function populateModalItem(item) {
     `;
   } else {
     stage.innerHTML = `
-      <video src="${item.videoSrc}" controls autoplay playsinline></video>
+      <video id="cinemaModalVideo" src="${item.videoSrc}" controls autoplay playsinline preload="auto"></video>
     `;
+    const vid = document.getElementById('cinemaModalVideo');
+    if (vid) {
+      vid.muted = false;
+      vid.volume = 1.0;
+      vid.play().catch(() => {
+        vid.muted = true;
+        vid.play();
+      });
+    }
   }
 }
 
@@ -1092,6 +1115,13 @@ function initGsapAnimations() {
 
     window.addEventListener('resize', update3DCurve);
     setTimeout(update3DCurve, 250);
+
+    // Ensure all jesper slide videos start playing smoothly
+    jesperTrack.querySelectorAll('video').forEach((v) => {
+      v.muted = true;
+      v.play().catch(() => {});
+    });
+
 
     // Attach click to open video modal for all jesper cards
     cards.forEach((card) => {
@@ -1245,16 +1275,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hero sound toggle
-  const heroVideo = document.getElementById('heroBgVideo');
+  // Hero sound toggle & direct viewport click audio
   const soundBtn = document.getElementById('heroSoundBtn');
-  soundBtn?.addEventListener('click', () => {
-    if (!heroVideo) return;
-    heroVideo.muted = !heroVideo.muted;
+  const soundCue = document.getElementById('heroSoundCue');
+  const heroViewport = document.getElementById('heroViewport');
+
+  function getActiveHeroVideo() {
+    const activeSlide = document.querySelector('.hero-cinema-slide.is-active') || document.querySelector('.hero-cinema-slide');
+    return activeSlide ? activeSlide.querySelector('video') : document.getElementById('heroBgVideo');
+  }
+
+  function updateSoundUI(isMuted) {
     const iconMuted = '<svg class="sound-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
     const iconActive = '<svg class="sound-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
-    const label = heroVideo.muted ? (currentLang === 'nl' ? 'Geluid Aan' : 'Sound On') : (currentLang === 'nl' ? 'Geluid Uit' : 'Mute');
-    soundBtn.innerHTML = `${heroVideo.muted ? iconMuted : iconActive} <span class="sound-text">${label}</span>`;
+    const label = isMuted ? (currentLang === 'nl' ? 'Geluid Aan' : 'Sound On') : (currentLang === 'nl' ? 'Geluid Uit' : 'Mute');
+    if (soundBtn) {
+      soundBtn.innerHTML = `${isMuted ? iconMuted : iconActive} <span class="sound-text">${label}</span>`;
+    }
+    if (soundCue) {
+      soundCue.innerHTML = isMuted
+        ? `<span class="cue-icon">🔊</span> <span>${currentLang === 'nl' ? 'Klik voor geluid' : 'Click for sound'}</span>`
+        : `<span class="cue-icon">🔇</span> <span>${currentLang === 'nl' ? 'Geluid Actief' : 'Audio Active'}</span>`;
+    }
+  }
+
+  function toggleActiveHeroSound() {
+    const activeVid = getActiveHeroVideo();
+    if (!activeVid) return;
+    activeVid.muted = !activeVid.muted;
+    if (!activeVid.muted) {
+      activeVid.volume = 1.0;
+      activeVid.play().catch(() => {});
+    }
+    updateSoundUI(activeVid.muted);
+  }
+
+  soundBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleActiveHeroSound();
+  });
+
+  heroViewport?.addEventListener('click', () => {
+    toggleActiveHeroSound();
+  });
+  heroViewport?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleActiveHeroSound();
+    }
   });
 
   // Fullscreen Showreel button in Hero
