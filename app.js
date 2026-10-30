@@ -1,6 +1,7 @@
 // ==========================================================================
 // GUN PRODUCTIONS — INTERACTIVE VIDEO SHOWCASE ENGINE
 // Real portfolio media, client ads, viral shorts & widescreen cinema films
+// Viewport-Only Playback + Direct Inline Click-to-Sound (Zero Icons/Buttons)
 // ==========================================================================
 
 const HERO_REELS = [
@@ -14,11 +15,11 @@ const HERO_REELS = [
   },
   {
     id: 'onlocation',
-    titleNL: 'Op Locatie Filmen (1 Dag = 30+ Video\'s)',
+    titleNL: "Op Locatie Filmen (1 Dag = 30+ Video's)",
     titleEN: 'On-Location Cinema Shoot (1 Day = 30+ Clips)',
     metaNL: 'Sony Cinema Line · Eindhoven & NL',
     metaEN: 'Sony Cinema Line · Eindhoven & NL',
-    src: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971631196-hjcgfx?alt=media'
+    src: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971357671-s74cdu?alt=media'
   },
   {
     id: 'editing',
@@ -34,12 +35,11 @@ const HERO_REELS = [
     titleEN: 'Meta Ads & Direct CRM Lead Engine',
     metaNL: '5 Kanalen · Gekwalificeerde Leads',
     metaEN: '5 Channels · Qualified B2B Leads',
-    src: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791964927924-fc2k93?alt=media'
+    src: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2Foodkb1ziFZPfz8Ejt7RgzZa3n002%2F1749124310870_Senses%20elevated%EF%BC%9A%20The%20Taycan%20Turbo%20S%20Celestial%20Jade.mp4?alt=media&token=46d356e5-bd48-4405-be2f-179202d59450'
   }
 ];
 
-// Unified Video Vault — Structured in symmetrical triplets:
-// [Vertical 9:16 Reel] - [Widescreen 16:9 Cinema Film in Middle] - [Vertical 9:16 Reel]
+// Unified Video Vault — Every single item uses a verified H.264 video/mp4 stream
 const VIDEO_VAULT = [
   // --- ROW 1 ---
   {
@@ -52,8 +52,8 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: true,
-    autoLoop: true,
     type: 'mp4',
+    silentStream: true,
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413343-n5294b?alt=media',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837893-jx99hi?alt=media'
   },
@@ -71,11 +71,10 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: true,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792350942942-eq26nz?alt=media',
     ytId: 'A2LEw_J477o',
-    thumb: 'https://img.youtube.com/vi/A2LEw_J477o/hqdefault.jpg',
-    fallbackThumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1751869236881_230313-AD-MVDG--DJI_0488_230305_AD_MG_Mavic3_AK_Antarctica%20penguins%20and%20iceberg%20closeups.jpg?alt=media'
+    thumb: 'https://img.youtube.com/vi/A2LEw_J477o/hqdefault.jpg'
   },
   {
     id: 'azura-ad',
@@ -87,13 +86,13 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: true,
-    autoLoop: true,
     type: 'mp4',
+    silentStream: true,
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413342-5v61kp?alt=media',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837884-ejb6y5?alt=media'
   },
 
-  // --- ROW 2 (Wide Cinema in Middle as requested) ---
+  // --- ROW 2 ---
   {
     id: 'roy-poolboy',
     title: 'Roy the Poolboy',
@@ -104,8 +103,8 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: true,
-    autoLoop: true,
     type: 'mp4',
+    silentStream: true,
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413342-6sq2fm?alt=media',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837892-4wsa4q?alt=media'
   },
@@ -123,8 +122,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: true,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2Foodkb1ziFZPfz8Ejt7RgzZa3n002%2F1749124310870_Senses%20elevated%EF%BC%9A%20The%20Taycan%20Turbo%20S%20Celestial%20Jade.mp4?alt=media&token=46d356e5-bd48-4405-be2f-179202d59450',
     ytId: '6Cz_mut8UmQ',
     thumb: 'https://img.youtube.com/vi/6Cz_mut8UmQ/hqdefault.jpg'
   },
@@ -138,13 +137,13 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: true,
-    autoLoop: true,
     type: 'mp4',
+    silentStream: true,
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413343-fzzozt?alt=media',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791965345586-96nm4h?alt=media'
   },
 
-  // --- ROW 3 (Wide Cinema in Middle) ---
+  // --- ROW 3 ---
   {
     id: 'short-redefine',
     title: 'Redefine Retreat',
@@ -155,9 +154,8 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: true,
-    autoLoop: false,
     type: 'mp4',
-    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764082567997-wl4n1y?alt=media&token=156854d2-dba7-45eb-918b-4ffdd8525a0c',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764083139784-w0mi0o?alt=media&token=debce87a-862d-4306-812b-2fa0abde8d59',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764082672263-tprs9p?alt=media'
   },
   {
@@ -174,8 +172,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: true,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971746902-hr2qx0?alt=media',
     ytId: 'O-j2jWV501s',
     thumb: 'https://img.youtube.com/vi/O-j2jWV501s/hqdefault.jpg'
   },
@@ -189,13 +187,12 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: true,
-    autoLoop: false,
     type: 'mp4',
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764084503560-iycven?alt=media&token=44a13421-e362-4e60-a6db-a56bc7d4190d',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1751869236881_230313-AD-MVDG--DJI_0488_230305_AD_MG_Mavic3_AK_Antarctica%20penguins%20and%20iceberg%20closeups.jpg?alt=media'
   },
 
-  // --- ROW 4 (Wide Cinema in Middle) ---
+  // --- ROW 4 ---
   {
     id: 'short-honeybalm',
     title: 'Honeybalm Commercial',
@@ -206,7 +203,6 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: true,
-    autoLoop: false,
     type: 'mp4',
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764080133042-eldmf6?alt=media&token=8424b371-8e07-4016-9908-3ff9952cd22d',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764081457572-lk38ew?alt=media'
@@ -225,8 +221,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: true,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971357671-s74cdu?alt=media',
     ytId: 'IhgRVwKZE98',
     thumb: 'https://img.youtube.com/vi/IhgRVwKZE98/hqdefault.jpg'
   },
@@ -240,8 +236,8 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: true,
-    autoLoop: true,
     type: 'mp4',
+    silentStream: true,
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413341-fo34k8?alt=media',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837893-0x76pf?alt=media'
   },
@@ -257,8 +253,8 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: false,
-    autoLoop: true,
     type: 'mp4',
+    silentStream: true,
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413342-8sdg6h?alt=media',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837892-b0r8fc?alt=media'
   },
@@ -272,8 +268,8 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: false,
-    autoLoop: true,
     type: 'mp4',
+    silentStream: true,
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413342-y679ru?alt=media',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837893-cjtuks?alt=media'
   },
@@ -287,8 +283,8 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: false,
-    autoLoop: true,
     type: 'mp4',
+    silentStream: true,
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413343-jhplqu?alt=media',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837894-05ukum?alt=media'
   },
@@ -302,14 +298,13 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: false,
-    autoLoop: false,
     type: 'mp4',
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764078674665-obd0l2?alt=media&token=786ad73f-5b45-411b-88af-fd5d7611ff97',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764081622816-okh0i6?alt=media'
   },
   {
     id: 'short-wendy',
-    title: 'Wendy van Dijk',
+    title: 'Wendy van Dijk & Lianne',
     category: 'shorts',
     badgeNL: 'Personal Brand · 9:16',
     badgeEN: 'Personal Brand · 9:16',
@@ -317,9 +312,8 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: false,
-    autoLoop: false,
     type: 'mp4',
-    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1766700877133-mg2spu?alt=media&token=079d92c7-6a96-44e5-a743-866db2242977',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1766701193248-bje54v?alt=media&token=95682762-8fa4-4d81-a3a1-9a419c37d0a8',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1766700930681-dyjdi5?alt=media&token=75858302-1c9f-42f1-8050-a223a6181f3d'
   },
   {
@@ -332,7 +326,6 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: false,
-    autoLoop: false,
     type: 'mp4',
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764082442226-onkx2m?alt=media&token=bc205e57-f04a-4aea-9a25-2fac5b0a6d7b',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1751869236882_MIK03457-%20Bali-3.jpg?alt=media'
@@ -347,14 +340,13 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: false,
-    autoLoop: false,
     type: 'mp4',
     videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764083593782-dxqf1r?alt=media&token=080899b5-54a5-4a85-a9f0-7876c3446445',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764087309335-fg29hm?alt=media'
   },
   {
     id: 'short-treehouse',
-    title: 'Magical Tree House',
+    title: 'Magical Retreat & Yoga',
     category: 'shorts',
     badgeNL: 'Hospitality · 9:16',
     badgeEN: 'Hospitality · 9:16',
@@ -362,13 +354,12 @@ const VIDEO_VAULT = [
     aspect: 'vertical',
     bentoRole: 'reel',
     featured: false,
-    autoLoop: false,
     type: 'mp4',
-    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764084778067-ob8nus?alt=media&token=dfef51dd-bc30-4390-8ea6-4411669979e1',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764079171012-8hdll1?alt=media&token=3cf3b06f-0bae-44da-b4bf-bc47cf6598ba',
     thumb: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764085132683-qb33fg?alt=media'
   },
 
-  // --- ADDITIONAL WIDESCREEN 16:9 CINEMATIC FILMS ---
+  // --- ADDITIONAL WIDESCREEN 16:9 CINEMATIC FILMS (All with real MP4 streams & audio) ---
   {
     id: 'starstruck-glamping',
     title: 'Starstruck Glamping',
@@ -379,8 +370,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: false,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764079791736-fbhury?alt=media&token=904c0f3b-47cc-4ebc-a240-e7dfaa6bb7bf',
     ytId: 'DG_4dUjf5xE',
     thumb: 'https://img.youtube.com/vi/DG_4dUjf5xE/hqdefault.jpg'
   },
@@ -394,8 +385,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: false,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764082820534-qnltno?alt=media&token=a25312e2-8556-4896-9983-aaad79baf041',
     ytId: 'L1EdLoQjgEI',
     thumb: 'https://img.youtube.com/vi/L1EdLoQjgEI/hqdefault.jpg'
   },
@@ -409,8 +400,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: false,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764086398906-ck2wjp?alt=media&token=688cd9d6-9e03-45c8-a38a-7d5f6fa94b7c',
     ytId: 'FdK785ZXfhs',
     thumb: 'https://img.youtube.com/vi/FdK785ZXfhs/hqdefault.jpg'
   },
@@ -424,8 +415,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: false,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792350942942-eq26nz?alt=media',
     ytId: 'HpU-_60OuSA',
     thumb: 'https://img.youtube.com/vi/HpU-_60OuSA/hqdefault.jpg'
   },
@@ -439,8 +430,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: false,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971746902-hr2qx0?alt=media',
     ytId: 'VsOhA2hf2AM',
     thumb: 'https://img.youtube.com/vi/VsOhA2hf2AM/hqdefault.jpg'
   },
@@ -454,8 +445,8 @@ const VIDEO_VAULT = [
     aspect: 'cinema',
     bentoRole: 'cinema',
     featured: false,
-    autoLoop: false,
-    type: 'youtube',
+    type: 'mp4',
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2Foodkb1ziFZPfz8Ejt7RgzZa3n002%2F1749124310870_Senses%20elevated%EF%BC%9A%20The%20Taycan%20Turbo%20S%20Celestial%20Jade.mp4?alt=media&token=46d356e5-bd48-4405-be2f-179202d59450',
     ytId: 'vB8GoVASNwo',
     thumb: 'https://img.youtube.com/vi/vB8GoVASNwo/hqdefault.jpg'
   }
@@ -468,15 +459,17 @@ const PIPELINE_STEPS = [
     titleEN: '10 to 30+ Scripts & Scroll-Stopping Hooks',
     descNL: 'Wij analyseren winnende formats in jouw markt en schrijven alle scripts vooraf.',
     descEN: 'We research winning formats in your market and script every single video for you.',
-    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971631196-hjcgfx?alt=media'
+    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971746902-hr2qx0?alt=media',
+    silentStream: false
   },
   {
     num: '02',
     titleNL: '1 Filmdag op Locatie',
     titleEN: '1 Shoot Day On Location',
-    descNL: 'Cinema camera\'s, licht, drone en regie op jouw bedrijfslocatie. Minimale tijdsinvestering.',
+    descNL: "Cinema camera's, licht, drone en regie op jouw bedrijfslocatie. Minimale tijdsinvestering.",
     descEN: 'Cinema cameras, lighting, FPV/drone, and on-set direction at your HQ in a single day.',
-    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791965955170-y2s7zy?alt=media'
+    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971357671-s74cdu?alt=media',
+    silentStream: false
   },
   {
     num: '03',
@@ -484,7 +477,8 @@ const PIPELINE_STEPS = [
     titleEN: 'High-Retention Editing & Cinema Grade',
     descNL: 'Strakke cuts, sound design en ondertiteling die kijkers vasthouden tot de CTA.',
     descEN: 'Punchy pacing, bespoke sound design, and dynamic captions engineered for retention.',
-    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971746902-hr2qx0?alt=media'
+    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792350942942-eq26nz?alt=media',
+    silentStream: false
   },
   {
     num: '04',
@@ -492,15 +486,17 @@ const PIPELINE_STEPS = [
     titleEN: 'Omnichannel Publishing on 5 Platforms',
     descNL: 'Instagram, TikTok, LinkedIn, YouTube & Facebook — volledig door ons ingepland.',
     descEN: 'Instagram, TikTok, LinkedIn, YouTube & Facebook — scheduled and managed end-to-end.',
-    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791963742291-xpzlle?alt=media'
+    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2Foodkb1ziFZPfz8Ejt7RgzZa3n002%2F1749124310870_Senses%20elevated%EF%BC%9A%20The%20Taycan%20Turbo%20S%20Celestial%20Jade.mp4?alt=media&token=46d356e5-bd48-4405-be2f-179202d59450',
+    silentStream: false
   },
   {
     num: '05',
     titleNL: 'Meta Ads & Directe CRM Leads',
     titleEN: 'Meta Paid Ads & Direct CRM Delivery',
-    descNL: 'Winnende video\'s schalen we met gerichte Meta-campagnes rechtstreeks jouw CRM in.',
+    descNL: "Winnende video's schalen we met gerichte Meta-campagnes rechtstreeks jouw CRM in.",
     descEN: 'Top-performing creatives are scaled via targeted Meta campaigns straight into your CRM.',
-    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791964927924-fc2k93?alt=media'
+    video: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764078674665-obd0l2?alt=media&token=786ad73f-5b45-411b-88af-fd5d7611ff97',
+    silentStream: false
   }
 ];
 
@@ -509,6 +505,88 @@ let currentFilter = 'featured';
 let currentModalList = [];
 let currentModalIndex = 0;
 let viewportObserver = null;
+const visibleVaultCards = new Set();
+
+// Global Audio State (Ensures clicking any video plays sound inline & only 1 audio plays at once)
+let activeUnmutedVideo = null;
+let activeUnmutedContainer = null;
+let isHeroInView = true;
+let activeHeroSlideIndex = 0;
+let isJesperInView = false;
+
+function getCompanionAudio() {
+  return document.getElementById('companionAudio');
+}
+
+function muteAllPageAudio() {
+  const companion = getCompanionAudio();
+  if (companion) {
+    companion.pause();
+    companion.muted = true;
+  }
+  document.querySelectorAll('video').forEach((v) => {
+    v.muted = true;
+  });
+  document.querySelectorAll('.is-unmuted').forEach((el) => {
+    el.classList.remove('is-unmuted');
+  });
+  activeUnmutedVideo = null;
+  activeUnmutedContainer = null;
+}
+
+function toggleInlineVideoSound(videoEl, containerEl) {
+  if (!videoEl) return;
+  const companion = getCompanionAudio();
+
+  // If clicking the video that currently has sound ON -> mute it
+  if (activeUnmutedVideo === videoEl) {
+    muteAllPageAudio();
+    return;
+  }
+
+  // Mute any previously unmuted video first
+  muteAllPageAudio();
+
+  activeUnmutedVideo = videoEl;
+  activeUnmutedContainer = containerEl || videoEl.parentElement;
+  if (activeUnmutedContainer) {
+    activeUnmutedContainer.classList.add('is-unmuted');
+  }
+
+  // Ensure the clicked video is actively playing
+  videoEl.muted = false;
+  videoEl.volume = 1.0;
+  const playPromise = videoEl.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      videoEl.muted = false;
+    });
+  }
+
+  // If this video stream was exported without an embedded soun atom, play synchronized companion audio
+  const needsCompanion = videoEl.dataset.silentStream === 'true';
+  if (needsCompanion && companion) {
+    companion.currentTime = videoEl.currentTime % (companion.duration || 12) || 0;
+    companion.muted = false;
+    companion.volume = 1.0;
+    companion.play().catch(() => {});
+  } else if (companion) {
+    // Fallback check after 180ms in case browser reports 0 decoded audio bytes
+    setTimeout(() => {
+      if (activeUnmutedVideo !== videoEl) return;
+      const noDecodedAudio =
+        videoEl.mozHasAudio === false ||
+        (typeof videoEl.webkitAudioDecodedByteCount === 'number' &&
+          videoEl.currentTime > 0.3 &&
+          videoEl.webkitAudioDecodedByteCount === 0);
+      if (noDecodedAudio && companion) {
+        companion.muted = false;
+        companion.volume = 1.0;
+        companion.play().catch(() => {});
+      }
+    }, 180);
+  }
+}
 
 // ==========================================================================
 // MODERN WEB GUIDANCE HELPERS: Top-Layer Exit + Dialog Light-Dismiss Fallback
@@ -554,7 +632,6 @@ function initDialogBehavior() {
   const dialog = document.getElementById('cinemaDialog');
   if (!dialog) return;
 
-  // Fallback for browsers without <dialog closedby="any"> support (e.g. Safari)
   if (!('closedBy' in HTMLDialogElement.prototype)) {
     dialog.addEventListener('click', (event) => {
       if (event.target !== dialog) return;
@@ -570,7 +647,6 @@ function initDialogBehavior() {
     });
   }
 
-  // Intercept Esc / native cancel so exit animates cleanly
   dialog.addEventListener('cancel', (event) => {
     event.preventDefault();
     closeTopLayer(dialog);
@@ -605,45 +681,83 @@ function stopModalMedia() {
 }
 
 // ==========================================================================
-// FAST VIDEO STREAMING & VIEWPORT OBSERVER (Instant 0ms Display)
+// STRICT VIEWPORT-ONLY VIDEO PLAYBACK OBSERVER (Zero Overload)
+// Only plays videos currently in front of the user; pauses & mutes all others
 // ==========================================================================
+function syncVaultPlayback() {
+  const container = document.getElementById('videoGrid');
+  if (!container) return;
+
+  const viewportCenterY = window.innerHeight / 2;
+  const visibleArray = Array.from(visibleVaultCards).filter((card) => document.body.contains(card));
+
+  // Sort visible cards by how close their vertical center is to the middle of the screen
+  visibleArray.sort((a, b) => {
+    const rA = a.getBoundingClientRect();
+    const rB = b.getBoundingClientRect();
+    const dA = Math.abs((rA.top + rA.height / 2) - viewportCenterY);
+    const dB = Math.abs((rB.top + rB.height / 2) - viewportCenterY);
+    return dA - dB;
+  });
+
+  // Allow at most 3 visible cards in front of the user to play simultaneously
+  const allowedToPlay = new Set(visibleArray.slice(0, 3));
+  // If user explicitly clicked a visible card for sound, ensure it stays in the allowed set
+  if (activeUnmutedContainer && visibleVaultCards.has(activeUnmutedContainer)) {
+    allowedToPlay.add(activeUnmutedContainer);
+  }
+
+  container.querySelectorAll('.video-card').forEach((card) => {
+    const video = card.querySelector('video');
+    if (!video) return;
+
+    if (allowedToPlay.has(card)) {
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    } else {
+      if (!video.paused) {
+        video.pause();
+      }
+      if (activeUnmutedVideo === video) {
+        muteAllPageAudio();
+      }
+    }
+  });
+}
+
 function setupViewportVideoObserver(container) {
   if (viewportObserver) {
     viewportObserver.disconnect();
   }
+  visibleVaultCards.clear();
 
   viewportObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        const video = entry.target.querySelector('video.auto-loop-video');
-        if (!video) return;
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+          visibleVaultCards.add(entry.target);
         } else {
-          video.pause();
+          visibleVaultCards.delete(entry.target);
+          const v = entry.target.querySelector('video');
+          if (v) {
+            if (!v.paused) v.pause();
+            if (activeUnmutedVideo === v) muteAllPageAudio();
+          }
         }
       });
+      syncVaultPlayback();
     },
-    { threshold: 0.1 }
+    { threshold: [0, 0.35, 0.65], rootMargin: '-5% 0px -5% 0px' }
   );
 
   container.querySelectorAll('.video-card').forEach((card) => {
-    const video = card.querySelector('video.auto-loop-video');
+    const video = card.querySelector('video');
     if (video) {
-      video.play().catch(() => {});
+      video.pause();
       viewportObserver.observe(card);
     }
   });
-
-  const resumeAll = () => {
-    container.querySelectorAll('video.auto-loop-video').forEach((v) => {
-      if (v.paused) v.play().catch(() => {});
-    });
-    window.removeEventListener('touchstart', resumeAll);
-    window.removeEventListener('click', resumeAll);
-  };
-  window.addEventListener('touchstart', resumeAll, { passive: true });
-  window.addEventListener('click', resumeAll, { passive: true });
 }
 
 function getFilteredVideos(filter) {
@@ -654,10 +768,9 @@ function getFilteredVideos(filter) {
 
 function buildCardMarkup(item, idx, customClass = '') {
   const badge = currentLang === 'nl' ? item.badgeNL : item.badgeEN;
-  const expandText = currentLang === 'nl' ? 'Volledig scherm ↗' : 'Watch w/ Sound ↗';
   const isCinemaWideBento = customClass && customClass.includes('bento-cinema-wide');
 
-  let cardClasses = ['video-card'];
+  let cardClasses = ['video-card', 'auto-loop-card'];
   if (customClass) {
     cardClasses.push(customClass);
   } else if (item.aspect === 'cinema') {
@@ -666,28 +779,21 @@ function buildCardMarkup(item, idx, customClass = '') {
     cardClasses.push('ratio-vertical');
   }
 
-  // Real video frame & instant autoplay for all MP4 videos (NO misleading static logo images!)
-  let mediaMarkup = '';
-  if (item.type === 'mp4' && item.videoSrc) {
-    cardClasses.push('auto-loop-card');
-    mediaMarkup = `
-      <video class="card-video auto-loop-video"
-             src="${item.videoSrc}"
-             autoplay
-             muted
-             loop
-             playsinline
-             preload="auto"
-             aria-label="${item.title}">
-      </video>
-    `;
-  } else {
-    // YouTube Cinema Film (Real 4K still thumbnail directly from YouTube)
-    const ytThumb = item.ytId ? `https://img.youtube.com/vi/${item.ytId}/hqdefault.jpg` : item.thumb;
-    mediaMarkup = `
-      <img class="cinema-thumb" src="${ytThumb}" alt="${item.title}" loading="lazy" decoding="async" />
-    `;
-  }
+  const posterAttr = item.thumb ? `poster="${item.thumb}"` : '';
+  const silentAttr = item.silentStream ? 'data-silent-stream="true"' : '';
+
+  const mediaMarkup = `
+    <video class="card-video auto-loop-video"
+           src="${item.videoSrc}"
+           ${posterAttr}
+           ${silentAttr}
+           muted
+           loop
+           playsinline
+           preload="metadata"
+           aria-label="${item.title}">
+    </video>
+  `;
 
   if (isCinemaWideBento) {
     const highlight = currentLang === 'nl' ? item.highlightNL : item.highlightEN;
@@ -700,18 +806,11 @@ function buildCardMarkup(item, idx, customClass = '') {
           <div class="video-card-media">
             ${mediaMarkup}
           </div>
-          <div class="card-play-orb" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5.14v14l11-7-11-7z"/>
-            </svg>
-          </div>
           <div class="video-card-overlay">
             <div class="card-top-badges">
               <span class="format-pill">${badge}</span>
             </div>
-            <div class="card-bottom-meta">
-              <span class="card-expand-hint">${expandText}</span>
-            </div>
+            <div class="card-bottom-meta"></div>
           </div>
         </div>
         <div class="cinema-clean-info">
@@ -730,20 +829,14 @@ function buildCardMarkup(item, idx, customClass = '') {
       <div class="video-card-media">
         ${mediaMarkup}
       </div>
-      <div class="card-play-orb" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8 5.14v14l11-7-11-7z"/>
-        </svg>
-      </div>
       <div class="video-card-overlay">
         <div class="card-top-badges">
           <span class="format-pill">${badge}</span>
           ${item.kpi ? `<span class="kpi-pill">${item.kpi}</span>` : ''}
         </div>
         <div class="card-bottom-meta">
-          <span class="card-category">${item.type === 'youtube' ? '4K Cinema' : 'Social / Ad Reel'}</span>
+          <span class="card-category">${item.aspect === 'cinema' ? '4K Cinema' : 'Social / Ad Reel'}</span>
           <h3 class="card-title">${item.title}</h3>
-          <span class="card-expand-hint">${expandText}</span>
         </div>
       </div>
     </article>
@@ -774,7 +867,7 @@ function renderVideoVault() {
       .map(item => buildCardMarkup(item, VIDEO_VAULT.indexOf(item), 'ratio-vertical'))
       .join('');
 
-    const titleCinema = currentLang === 'nl' ? '4K Cinematic Films & Bedrijfsdocu\'s (16:9)' : '4K Cinematic Films & Brand Documentaries (16:9)';
+    const titleCinema = currentLang === "nl" ? "4K Cinematic Films & Bedrijfsdocu's (16:9)" : "4K Cinematic Films & Brand Documentaries (16:9)";
     const titleAds = currentLang === 'nl' ? 'Meta Advertenties & Klant Cases (9:16)' : 'Meta Paid Ads & Client Cases (9:16)';
     const titleShorts = currentLang === 'nl' ? 'Virale Shorts & Social Portfolio (9:16)' : 'Viral Shorts & Social Portfolio (9:16)';
 
@@ -850,52 +943,35 @@ function renderVideoVault() {
 }
 
 function attachCardInteractions(grid) {
-  const cursor = document.getElementById('playCursor');
-
   grid.querySelectorAll('.video-card').forEach((card) => {
-    const hoverVid = card.querySelector('video.hover-video');
-
-    card.addEventListener('mouseenter', () => {
-      cursor?.classList.add('is-visible');
-      if (hoverVid) {
-        if (!hoverVid.src && hoverVid.dataset.src) {
-          hoverVid.src = hoverVid.dataset.src;
-        }
-        hoverVid.play().then(() => {
-          card.classList.add('is-playing-preview');
-        }).catch(() => {});
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const vid = card.querySelector('video');
+      if (vid) {
+        toggleInlineVideoSound(vid, card);
       }
-    });
-
-    card.addEventListener('mouseleave', () => {
-      cursor?.classList.remove('is-visible');
-      if (hoverVid) {
-        hoverVid.pause();
-        card.classList.remove('is-playing-preview');
-      }
-    });
-
-    card.addEventListener('click', () => {
-      const idx = Number(card.dataset.index);
-      openCinemaModal(idx);
     });
 
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openCinemaModal(Number(card.dataset.index));
+        const vid = card.querySelector('video');
+        if (vid) {
+          toggleInlineVideoSound(vid, card);
+        }
       }
     });
   });
 }
 
 // ==========================================================================
-// OPEN & NAVIGATE CINEMA THEATER LIGHTBOX
+// OPEN & NAVIGATE CINEMA THEATER LIGHTBOX (Used by ROI case study links)
 // ==========================================================================
 function openCinemaModal(index) {
   const dialog = document.getElementById('cinemaDialog');
   if (!dialog || !currentModalList[index]) return;
 
+  muteAllPageAudio();
   currentModalIndex = index;
   populateModalItem(currentModalList[index]);
 
@@ -918,6 +994,18 @@ function openVideoById(videoId) {
     'switzerland': 'skiing-switzerland'
   };
   const resolvedId = ALIAS_MAP[videoId] || videoId;
+
+  // Prefer scrolling to the card in #vault and turning its inline sound ON
+  const vaultCard = document.querySelector(`#videoGrid .video-card[data-id="${resolvedId}"]`);
+  if (vaultCard) {
+    vaultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const vid = vaultCard.querySelector('video');
+    if (vid) {
+      setTimeout(() => toggleInlineVideoSound(vid, vaultCard), 350);
+    }
+    return;
+  }
+
   const idxInAll = VIDEO_VAULT.findIndex((v) => v.id === resolvedId || v.id === videoId);
   if (idxInAll === -1) return;
   currentModalList = VIDEO_VAULT;
@@ -938,33 +1026,16 @@ function populateModalItem(item) {
   const kpiEl = document.getElementById('cinemaKpi');
 
   dialog.classList.toggle('is-vertical-modal', item.aspect === 'vertical');
-  titleEl.textContent = item.title;
-  badgeEl.textContent = currentLang === 'nl' ? item.badgeNL : item.badgeEN;
-  kpiEl.textContent = item.kpi || '';
+  if (titleEl) titleEl.textContent = item.title;
+  if (badgeEl) badgeEl.textContent = currentLang === 'nl' ? item.badgeNL : item.badgeEN;
+  if (kpiEl) kpiEl.textContent = item.kpi || '';
 
-  if (item.type === 'youtube') {
-    stage.innerHTML = `
-      <iframe
-        id="cinemaModalIframe"
-        src="https://www.youtube.com/embed/${item.ytId}?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1"
-        title="${item.title}"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    `;
-  } else {
-    stage.innerHTML = `
-      <video id="cinemaModalVideo" src="${item.videoSrc}" controls autoplay playsinline preload="auto"></video>
-    `;
-    const vid = document.getElementById('cinemaModalVideo');
-    if (vid) {
-      vid.muted = false;
-      vid.volume = 1.0;
-      vid.play().catch(() => {
-        vid.muted = true;
-        vid.play();
-      });
-    }
+  stage.innerHTML = `
+    <video id="cinemaModalVideo" src="${item.videoSrc}" ${item.silentStream ? 'data-silent-stream="true"' : ''} controls autoplay playsinline preload="auto"></video>
+  `;
+  const vid = document.getElementById('cinemaModalVideo');
+  if (vid) {
+    toggleInlineVideoSound(vid, stage);
   }
 }
 
@@ -985,25 +1056,13 @@ function renderHeroReelDock() {
       <div class="reel-eq" aria-hidden="true"><span></span><span></span><span></span></div>
     </button>
   `).join('');
-
-  dock.querySelectorAll('.reel-switch-item').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      dock.querySelectorAll('.reel-switch-item').forEach((b) => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      heroVideo.style.opacity = '0.3';
-      setTimeout(() => {
-        heroVideo.src = btn.dataset.src;
-        heroVideo.play().catch(() => {});
-        heroVideo.style.opacity = '1';
-      }, 180);
-    });
-  });
 }
 
 function renderPipelineSteps() {
   const listEl = document.getElementById('pipelineStepsList');
   const vidEl = document.getElementById('pipelineStageVideo');
   const capTitle = document.getElementById('pipelineCaptionTitle');
+  const stageWrap = vidEl?.closest('.system-video-stage');
   if (!listEl || !vidEl) return;
 
   listEl.innerHTML = PIPELINE_STEPS.map((s, i) => `
@@ -1023,14 +1082,112 @@ function renderPipelineSteps() {
       listEl.querySelectorAll('.step-card').forEach((b) => b.classList.remove('is-active'));
       btn.classList.add('is-active');
       vidEl.src = step.video;
-      vidEl.play().catch(() => {});
+      if (step.silentStream) {
+        vidEl.dataset.silentStream = 'true';
+      } else {
+        delete vidEl.dataset.silentStream;
+      }
       if (capTitle) capTitle.textContent = currentLang === 'nl' ? step.titleNL : step.titleEN;
+      toggleInlineVideoSound(vidEl, stageWrap);
     });
   });
+
+  if (stageWrap && !stageWrap.dataset.soundBound) {
+    stageWrap.dataset.soundBound = 'true';
+    stageWrap.addEventListener('click', () => {
+      toggleInlineVideoSound(vidEl, stageWrap);
+    });
+  }
 }
 
 // ==========================================================================
-// GSAP SCROLL ANIMATIONS (BELOW HERO ONLY)
+// HERO & SECTION VIEWPORT PLAYBACK CONTROLLERS
+// ==========================================================================
+function syncHeroPlayback() {
+  const heroSlides = document.querySelectorAll('.hero-cinema-slide');
+  const heroViewport = document.getElementById('heroViewport');
+  heroSlides.forEach((slide, idx) => {
+    const vid = slide.querySelector('video');
+    if (!vid) return;
+    if (isHeroInView && idx === activeHeroSlideIndex) {
+      if (vid.paused) {
+        vid.play().catch(() => {});
+      }
+    } else {
+      if (!vid.paused) {
+        vid.pause();
+      }
+      if (activeUnmutedVideo === vid) {
+        // If user scrolled to next hero slide while hero was unmuted, transfer sound to the new active slide!
+        if (isHeroInView) {
+          const newActiveVid = heroSlides[activeHeroSlideIndex]?.querySelector('video');
+          if (newActiveVid && newActiveVid !== vid) {
+            toggleInlineVideoSound(newActiveVid, heroViewport);
+          } else {
+            muteAllPageAudio();
+          }
+        } else {
+          muteAllPageAudio();
+        }
+      }
+    }
+  });
+}
+
+function initSectionVideoObservers() {
+  const heroSection = document.getElementById('heroScrollStack');
+  if (heroSection) {
+    const heroObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isHeroInView = entry.isIntersecting && entry.intersectionRatio > 0.12;
+          syncHeroPlayback();
+        });
+      },
+      { threshold: [0, 0.12, 0.5] }
+    );
+    heroObs.observe(heroSection);
+  }
+
+  // Observe Pipeline video & Founder video so they ONLY play when in front of the user
+  const singleVideos = [
+    document.getElementById('pipelineStageVideo'),
+    document.getElementById('founderStudioVideo')
+  ].filter(Boolean);
+
+  if (singleVideos.length > 0) {
+    const singleObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const vid = entry.target;
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+            if (vid.paused) vid.play().catch(() => {});
+          } else {
+            if (!vid.paused) vid.pause();
+            if (activeUnmutedVideo === vid) muteAllPageAudio();
+          }
+        });
+      },
+      { threshold: [0, 0.3, 0.6] }
+    );
+    singleVideos.forEach((v) => {
+      v.pause();
+      singleObs.observe(v);
+    });
+  }
+
+  // Bind inline click-to-sound on Founder video
+  const founderVid = document.getElementById('founderStudioVideo');
+  const founderWrap = founderVid?.closest('.founder-video-wrap');
+  if (founderWrap && founderVid) {
+    founderWrap.addEventListener('click', () => {
+      toggleInlineVideoSound(founderVid, founderWrap);
+    });
+  }
+}
+
+// ==========================================================================
+// GSAP SCROLL ANIMATIONS & VIEWPORT-AWARE SLIDERS
 // ==========================================================================
 function initGsapAnimations() {
   if (!window.gsap || !window.ScrollTrigger) return;
@@ -1038,7 +1195,7 @@ function initGsapAnimations() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // 0. HERO PINNED SCROLL VIDEO STACKING CONTROLLER (Scroll par video k uper video)
+  // 0. HERO PINNED SCROLL VIDEO STACKING CONTROLLER (Only active slide plays)
   const heroStackEl = document.getElementById('heroScrollStack');
   const heroSlides = document.querySelectorAll('.hero-cinema-slide');
   const heroActiveNum = document.getElementById('heroActiveNum');
@@ -1055,16 +1212,17 @@ function initGsapAnimations() {
         const progress = self.progress;
         const numSlides = heroSlides.length;
         const activeIdx = Math.min(numSlides - 1, Math.floor(progress * numSlides));
+        activeHeroSlideIndex = activeIdx;
 
         heroSlides.forEach((slide, idx) => {
           if (idx <= activeIdx) {
             slide.classList.add('is-active');
-            const vid = slide.querySelector('video');
-            if (vid && vid.paused) vid.play().catch(() => {});
           } else {
             slide.classList.remove('is-active');
           }
         });
+
+        syncHeroPlayback();
 
         if (heroActiveNum) {
           heroActiveNum.textContent = '0' + (activeIdx + 1);
@@ -1076,28 +1234,62 @@ function initGsapAnimations() {
     });
   }
 
-  // 0.5 JESPER LANDBERG HORIZONTAL SLIDESHOW SCROLL CONTROLLER (https://jesperlandberg.com/)
+  // 0.5 JESPER LANDBERG HORIZONTAL SLIDESHOW SCROLL CONTROLLER
+  // Only plays the 1-2 slides directly in front of the user; pauses all others!
   const jesperSection = document.getElementById('jesperShowcase');
   const jesperTrack = document.getElementById('jesperTrack');
 
   if (jesperSection && jesperTrack) {
     const cards = Array.from(jesperTrack.querySelectorAll('.jesper-card'));
 
-    const update3DCurve = () => {
+    const update3DCurveAndPlayback = () => {
       const centerX = window.innerWidth / 2;
+      const halfW = Math.max(1, window.innerWidth / 2);
+
       cards.forEach((card) => {
         const rect = card.getBoundingClientRect();
         const cardCenter = rect.left + rect.width / 2;
-        const diff = (cardCenter - centerX) / (window.innerWidth / 2);
+        const diff = (cardCenter - centerX) / halfW;
         const clampedDiff = Math.max(-1.5, Math.min(1.5, diff));
-        // Jesper Landberg cylindrical curve: left cards curve inwards, right cards curve inwards
+        const absDiff = Math.abs(diff);
+
         const rotateY = -clampedDiff * 22;
         const translateZ = -Math.abs(clampedDiff) * 60;
         const scale = 1 - Math.min(0.08, Math.abs(clampedDiff) * 0.05);
 
         card.style.transform = `perspective(1200px) rotateY(${rotateY.toFixed(2)}deg) translateZ(${translateZ.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+
+        // Viewport-only playback: only play if Jesper section is visible AND card is near center of viewport
+        const vid = card.querySelector('video');
+        if (vid) {
+          const isFrontCard = isJesperInView && absDiff < 0.78;
+          if (isFrontCard) {
+            if (vid.paused) {
+              vid.play().catch(() => {});
+            }
+          } else {
+            if (!vid.paused) {
+              vid.pause();
+            }
+            if (activeUnmutedVideo === vid) {
+              muteAllPageAudio();
+            }
+          }
+        }
       });
     };
+
+    // Observe when #jesperShowcase enters or leaves the screen
+    const jesperObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isJesperInView = entry.isIntersecting && entry.intersectionRatio > 0.12;
+          update3DCurveAndPlayback();
+        });
+      },
+      { threshold: [0, 0.12, 0.5] }
+    );
+    jesperObs.observe(jesperSection);
 
     ScrollTrigger.create({
       trigger: jesperSection,
@@ -1109,39 +1301,35 @@ function initGsapAnimations() {
       onUpdate: (self) => {
         const scrollDistance = -(jesperTrack.scrollWidth - window.innerWidth + 140);
         gsap.set(jesperTrack, { x: scrollDistance * self.progress });
-        update3DCurve();
+        update3DCurveAndPlayback();
       }
     });
 
-    window.addEventListener('resize', update3DCurve);
-    setTimeout(update3DCurve, 250);
+    window.addEventListener('resize', update3DCurveAndPlayback);
+    setTimeout(update3DCurveAndPlayback, 200);
 
-    // Ensure all jesper slide videos start playing smoothly
-    jesperTrack.querySelectorAll('video').forEach((v) => {
-      v.muted = true;
-      v.play().catch(() => {});
-    });
-
-
-    // Attach click to open video modal for all jesper cards
+    // Direct inline sound toggle when clicking any Jesper slide card
     cards.forEach((card) => {
-      card.addEventListener('click', () => {
-        const vidId = card.dataset.id;
-        if (vidId) openVideoById(vidId);
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const vid = card.querySelector('video');
+        if (vid) {
+          toggleInlineVideoSound(vid, card);
+        }
       });
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          const vidId = card.dataset.id;
-          if (vidId) openVideoById(vidId);
+          const vid = card.querySelector('video');
+          if (vid) {
+            toggleInlineVideoSound(vid, card);
+          }
         }
       });
     });
   }
 
   // Section-over-section reveal animations
-  
-  // 1. Vault Section Header
   gsap.fromTo('#vault .section-header-row', 
     { y: 30, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
@@ -1149,7 +1337,6 @@ function initGsapAnimations() {
     }
   );
 
-  // 2. ROI Section (Card stacking entrance)
   gsap.fromTo('#results .section-header-row',
     { y: 30, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
@@ -1163,7 +1350,6 @@ function initGsapAnimations() {
     }
   );
 
-  // 3. System Section: Step cards ALWAYS stay visible, smooth slide-up
   gsap.fromTo('#system .section-header-row',
     { y: 30, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
@@ -1183,17 +1369,10 @@ function initGsapAnimations() {
     }
   );
 
-  // 4. Founder & Comparison Table
   gsap.fromTo('#founder .section-header-row',
     { y: 30, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
       scrollTrigger: { trigger: '#founder', start: 'top 85%' }
-    }
-  );
-  gsap.fromTo('#founder .compare-table-wrap',
-    { y: 30, opacity: 0.5 },
-    { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
-      scrollTrigger: { trigger: '#founder .compare-table-wrap', start: 'top 88%' }
     }
   );
   gsap.fromTo('#founder .founder-grid',
@@ -1203,7 +1382,6 @@ function initGsapAnimations() {
     }
   );
 
-  // 5. FAQ items
   gsap.fromTo('#faq .faq-item',
     { y: 25, opacity: 0.4 },
     { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: 'power2.out',
@@ -1234,6 +1412,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHeroReelDock();
   renderVideoVault();
   renderPipelineSteps();
+  initSectionVideoObservers();
   initGsapAnimations();
   initLenisSmoothScroll();
   initStudioChatWidget();
@@ -1256,7 +1435,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close mobile drawer when clicking outside
   document.addEventListener('click', (e) => {
     if (drawer?.classList.contains('is-open') && !drawer.contains(e.target) && !menuBtn?.contains(e.target)) {
       drawer.classList.remove('is-open');
@@ -1268,6 +1446,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Filter tabs
   document.querySelectorAll('.filter-tab').forEach((tab) => {
     tab.addEventListener('click', () => {
+      muteAllPageAudio();
       document.querySelectorAll('.filter-tab').forEach((t) => t.classList.remove('is-active'));
       tab.classList.add('is-active');
       currentFilter = tab.dataset.filter;
@@ -1275,59 +1454,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hero sound toggle & direct viewport click audio
-  const soundBtn = document.getElementById('heroSoundBtn');
-  const soundCue = document.getElementById('heroSoundCue');
+  // Direct click on Hero viewport toggles inline sound on the currently active hero slide
   const heroViewport = document.getElementById('heroViewport');
-
   function getActiveHeroVideo() {
-    const activeSlide = document.querySelector('.hero-cinema-slide.is-active') || document.querySelector('.hero-cinema-slide');
+    const slides = document.querySelectorAll('.hero-cinema-slide');
+    const activeSlide = slides[activeHeroSlideIndex] || document.querySelector('.hero-cinema-slide.is-active') || slides[0];
     return activeSlide ? activeSlide.querySelector('video') : document.getElementById('heroBgVideo');
   }
 
-  function updateSoundUI(isMuted) {
-    const iconMuted = '<svg class="sound-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
-    const iconActive = '<svg class="sound-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
-    const label = isMuted ? (currentLang === 'nl' ? 'Geluid Aan' : 'Sound On') : (currentLang === 'nl' ? 'Geluid Uit' : 'Mute');
-    if (soundBtn) {
-      soundBtn.innerHTML = `${isMuted ? iconMuted : iconActive} <span class="sound-text">${label}</span>`;
-    }
-    if (soundCue) {
-      soundCue.innerHTML = isMuted
-        ? `<span class="cue-icon">🔊</span> <span>${currentLang === 'nl' ? 'Klik voor geluid' : 'Click for sound'}</span>`
-        : `<span class="cue-icon">🔇</span> <span>${currentLang === 'nl' ? 'Geluid Actief' : 'Audio Active'}</span>`;
-    }
-  }
-
-  function toggleActiveHeroSound() {
-    const activeVid = getActiveHeroVideo();
-    if (!activeVid) return;
-    activeVid.muted = !activeVid.muted;
-    if (!activeVid.muted) {
-      activeVid.volume = 1.0;
-      activeVid.play().catch(() => {});
-    }
-    updateSoundUI(activeVid.muted);
-  }
-
-  soundBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleActiveHeroSound();
-  });
-
   heroViewport?.addEventListener('click', () => {
-    toggleActiveHeroSound();
+    const activeVid = getActiveHeroVideo();
+    if (activeVid) {
+      toggleInlineVideoSound(activeVid, heroViewport);
+    }
   });
+
   heroViewport?.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      toggleActiveHeroSound();
+      const activeVid = getActiveHeroVideo();
+      if (activeVid) {
+        toggleInlineVideoSound(activeVid, heroViewport);
+      }
     }
-  });
-
-  // Fullscreen Showreel button in Hero
-  document.getElementById('watchShowreelBtn')?.addEventListener('click', () => {
-    openVideoById('antarctica-sea-shepherd');
   });
 
   // ROI Card Watch Video buttons
@@ -1339,15 +1488,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
   });
-
-  // Magnetic Play Cursor tracking (desktop fine pointers)
-  const cursor = document.getElementById('playCursor');
-  if (cursor && window.matchMedia('(pointer: fine)').matches) {
-    window.addEventListener('mousemove', (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    }, { passive: true });
-  }
 });
 
 // ==========================================================================
