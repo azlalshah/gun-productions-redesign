@@ -2603,3 +2603,541 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   PURE MINIMALIST CINEMATIC HERO
+   ========================================================================== */
+.hero-pure-showcase {
+  position: relative;
+  z-index: 3;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3.5rem 1.5rem 2rem;
+  text-align: center;
+  align-items: center;
+}
+
+.hero-pure-center {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.hero-pure-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.pure-title-lead {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.pure-title-sub {
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream-70);
+  font-weight: 600;
+}
+
+.hero-pure-tagline {
+  font-size: clamp(0.95rem, 1.35vw, 1.2rem);
+  color: rgba(253, 250, 227, 0.85);
+  max-width: 650px;
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.85);
+}
+
+.hero-pure-bottom {
+  margin-top: auto;
+  padding-bottom: 0.5rem;
+}
+
+.hero-scroll-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--cream-70);
+  text-decoration: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, color 0.25s ease;
+  animation: bounceSlow 2.2s infinite ease-in-out;
+}
+
+.hero-scroll-indicator:hover {
+  color: var(--cream);
+  transform: translateY(3px);
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Sticky bento removed to prevent card freezing */
+
+.video-card:hover {
+  z-index: 25 !important;
+}
+
+/* ==========================================================================
+   HERO GSAP SCROLL-STACKING CINEMA STAGE (Clean 16:9, True Ratio, No Cutoff)
+   ========================================================================== */
+.hero-scroll-stack-section {
+  position: relative;
+  background: var(--bg-obsidian);
+  min-height: 100vh;
+}
+
+.hero-stack-sticky {
+  position: relative;
+  width: 100%;
+  padding-top: 5rem;
+  padding-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-cinema-container {
+  width: 100%;
+  max-width: 1320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-cinema-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-stack-counter {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: rgba(14, 14, 18, 0.85);
+  border: 1px solid rgba(253, 250, 227, 0.18);
+}
+
+.hero-stack-counter .counter-num {
+  font-weight: 800;
+  color: var(--cream);
+}
+
+.hero-stack-counter .counter-sep {
+  opacity: 0.4;
+  margin-inline: 0.2rem;
+}
+
+.hero-stack-counter .counter-total {
+  color: var(--cream-70);
+}
+
+.hero-cinema-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 78vh;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(253, 250, 227, 0.2);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95);
+}
+
+.hero-cinema-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  will-change: transform;
+  opacity: 0;
+  z-index: 1;
+}
+
+.hero-cinema-slide.is-active {
+  transform: translateY(0%);
+  opacity: 1;
+  z-index: 2;
+}
+
+.hero-slide-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-slide-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 3rem 2rem 1.8rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 7, 0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  pointer-events: none;
+}
+
+.slide-kicker {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-70);
+  font-weight: 700;
+}
+
+.slide-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 2.2rem);
+  font-weight: 800;
+  color: var(--cream);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.hero-cinema-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 0.5rem;
+  gap: 1.5rem;
+}
+
+.scroll-instruction {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream-70);
+}
+
+.scroll-progress-bar {
+  flex-grow: 1;
+  max-width: 240px;
+  height: 3px;
+  background: rgba(253, 250, 227, 0.15);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.scroll-progress-fill {
+  width: 25%;
+  height: 100%;
+  background: var(--cream);
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   JESPER LANDBERG 3D CYLINDRICAL CURVED SHOWCASE (Exact Match to Reference)
+   ========================================================================== */
+.jesper-3d-showcase-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #040406;
+  overflow: hidden;
+  border-top: 1px solid rgba(253, 250, 227, 0.1);
+  border-bottom: 1px solid rgba(253, 250, 227, 0.1);
+}
+
+.jesper-stage-wrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  perspective: 1400px;
+}
+
+/* Floating Corner HUD Navigation */
+.jesper-hud-top {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  padding-inline: max(2rem, 4vw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 25;
+  pointer-events: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-70);
+  font-weight: 700;
+}
+
+.jesper-hud-bottom {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  padding-inline: max(2rem, 4vw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 25;
+  pointer-events: auto;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream-70);
+}
+
+.hud-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hud-pill {
+  color: var(--cream);
+  font-weight: 800;
+}
+
+.hud-sep {
+  opacity: 0.35;
+}
+
+.hud-link {
+  color: var(--cream-70);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hud-link:hover {
+  color: var(--cream);
+}
+
+.hud-scroll-cue {
+  font-size: 0.72rem;
+  color: var(--cream-70);
+  letter-spacing: 0.14em;
+}
+
+/* 3D Perspective Grid Floor (Exact match to Jesper Landberg screenshot) */
+.jesper-perspective-floor {
+  position: absolute;
+  bottom: -30px;
+  left: -50%;
+  width: 200%;
+  height: 45vh;
+  background-image: 
+    linear-gradient(rgba(253, 250, 227, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(253, 250, 227, 0.07) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(70deg);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 65%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Vertically Centered 3D Carousel Stage */
+.jesper-carousel-stage {
+  position: relative;
+  width: 100%;
+  height: 64vh;
+  max-height: 580px;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+.jesper-curved-track {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  width: max-content;
+  padding-inline: max(2rem, calc((100vw - 620px) / 2));
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* The Cards with Original Video Aspect Ratios (9:16 and 16:9) */
+.jesper-card {
+  position: relative;
+  height: 56vh;
+  max-height: 540px;
+  min-height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #09090c;
+  border: 1px solid rgba(253, 250, 227, 0.16);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.88);
+  flex-shrink: 0;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.35s ease, border-color 0.28s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 16:9 Cinema Widescreen Slide */
+.jesper-card.ratio-cinema {
+  aspect-ratio: 16 / 9;
+  width: calc(56vh * 16 / 9);
+  max-width: 960px;
+}
+
+/* 9:16 Vertical Reel Slide */
+.jesper-card.ratio-vertical {
+  aspect-ratio: 9 / 16;
+  width: calc(56vh * 9 / 16);
+  max-width: 310px;
+}
+
+.jesper-card:hover,
+.jesper-card:focus-visible {
+  border-color: rgba(253, 250, 227, 0.45);
+  box-shadow: 0 32px 85px rgba(0, 0, 0, 0.96);
+}
+
+.card-media-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-media-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-gradient-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, transparent 35%, rgba(0, 0, 0, 0.92) 100%);
+  pointer-events: none;
+}
+
+.card-top-info {
+  position: absolute;
+  top: 1.15rem;
+  left: 1.15rem;
+  z-index: 3;
+}
+
+.card-format-pill {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: rgba(10, 10, 14, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(253, 250, 227, 0.2);
+}
+
+.card-bottom-info {
+  position: absolute;
+  bottom: 1.35rem;
+  left: 1.35rem;
+  right: 1.35rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 3;
+}
+
+.card-project-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.8vw, 1.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.95);
+}
+
+.card-arrow-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(253, 250, 227, 0.35);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.jesper-card:hover .card-arrow-circle {
+  transform: translateX(4px);
+  background: var(--cream);
+  color: #050507;
+}
+
+@media (max-width: 768px) {
+  .jesper-card {
+    height: 48vh;
+  }
+  .jesper-card.ratio-cinema {
+    width: calc(48vh * 16 / 9);
+  }
+  .jesper-card.ratio-vertical {
+    width: calc(48vh * 9 / 16);
+  }
+  .jesper-carousel-stage {
+    height: 54vh;
+  }
+}

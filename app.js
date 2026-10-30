@@ -1015,7 +1015,101 @@ function initGsapAnimations() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Section-over-section reveal animations (HERO IS STRICTLY EXCLUDED)
+  // 0. HERO PINNED SCROLL VIDEO STACKING CONTROLLER (Scroll par video k uper video)
+  const heroStackEl = document.getElementById('heroScrollStack');
+  const heroSlides = document.querySelectorAll('.hero-cinema-slide');
+  const heroActiveNum = document.getElementById('heroActiveNum');
+  const heroProgressFill = document.getElementById('heroScrollProgress');
+
+  if (heroStackEl && heroSlides.length > 0) {
+    ScrollTrigger.create({
+      trigger: heroStackEl,
+      start: 'top top',
+      end: '+=1800',
+      pin: true,
+      scrub: 0.6,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const numSlides = heroSlides.length;
+        const activeIdx = Math.min(numSlides - 1, Math.floor(progress * numSlides));
+
+        heroSlides.forEach((slide, idx) => {
+          if (idx <= activeIdx) {
+            slide.classList.add('is-active');
+            const vid = slide.querySelector('video');
+            if (vid && vid.paused) vid.play().catch(() => {});
+          } else {
+            slide.classList.remove('is-active');
+          }
+        });
+
+        if (heroActiveNum) {
+          heroActiveNum.textContent = '0' + (activeIdx + 1);
+        }
+        if (heroProgressFill) {
+          heroProgressFill.style.width = Math.max(25, (activeIdx + 1) * 25) + '%';
+        }
+      }
+    });
+  }
+
+  // 0.5 JESPER LANDBERG HORIZONTAL SLIDESHOW SCROLL CONTROLLER (https://jesperlandberg.com/)
+  const jesperSection = document.getElementById('jesperShowcase');
+  const jesperTrack = document.getElementById('jesperTrack');
+
+  if (jesperSection && jesperTrack) {
+    const cards = Array.from(jesperTrack.querySelectorAll('.jesper-card'));
+
+    const update3DCurve = () => {
+      const centerX = window.innerWidth / 2;
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const diff = (cardCenter - centerX) / (window.innerWidth / 2);
+        const clampedDiff = Math.max(-1.5, Math.min(1.5, diff));
+        // Jesper Landberg cylindrical curve: left cards curve inwards, right cards curve inwards
+        const rotateY = -clampedDiff * 22;
+        const translateZ = -Math.abs(clampedDiff) * 60;
+        const scale = 1 - Math.min(0.08, Math.abs(clampedDiff) * 0.05);
+
+        card.style.transform = `perspective(1200px) rotateY(${rotateY.toFixed(2)}deg) translateZ(${translateZ.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+      });
+    };
+
+    ScrollTrigger.create({
+      trigger: jesperSection,
+      start: 'top top',
+      end: () => '+=' + Math.max(1600, jesperTrack.scrollWidth * 0.85),
+      pin: true,
+      scrub: 0.8,
+      invalidateOnRefresh: true,
+      onUpdate: (self) => {
+        const scrollDistance = -(jesperTrack.scrollWidth - window.innerWidth + 140);
+        gsap.set(jesperTrack, { x: scrollDistance * self.progress });
+        update3DCurve();
+      }
+    });
+
+    window.addEventListener('resize', update3DCurve);
+    setTimeout(update3DCurve, 250);
+
+    // Attach click to open video modal for all jesper cards
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const vidId = card.dataset.id;
+        if (vidId) openVideoById(vidId);
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const vidId = card.dataset.id;
+          if (vidId) openVideoById(vidId);
+        }
+      });
+    });
+  }
+
+  // Section-over-section reveal animations
   
   // 1. Vault Section Header
   gsap.fromTo('#vault .section-header-row', 

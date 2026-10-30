@@ -79,98 +79,75 @@
        HERO — VIBRANT CINEMATIC SHOWREEL (HIGH CONTRAST & CLEAR FOOTAGE)
        ===================================================================== -->
   <main id="top">
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-cinema-frame">
-          <video
-            id="heroBgVideo"
-            class="hero-bg-video"
-            src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792350942942-eq26nz?alt=media"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
-            fetchpriority="high"
-            aria-label="GUN Productions Showreel">
-          </video>
-          <!-- Lightened scrim to let footage shine through with vivid colors -->
-          <div class="hero-scrim" aria-hidden="true"></div>
-
-          <div class="hero-top-bar">
+    <section class="hero-scroll-stack-section" id="heroScrollStack">
+      <div class="hero-stack-sticky">
+        <div class="container hero-cinema-container">
+          <!-- Top bar with studio metadata & audio toggle -->
+          <div class="hero-cinema-topbar">
             <div class="hero-studio-meta">
               <span class="meta-brand">GUN PRODUCTIONS</span>
               <span class="meta-divider" aria-hidden="true">/</span>
               <span class="meta-tag" data-nl="EINDHOVEN &middot; AMSTERDAM &middot; WORLDWIDE" data-en="EINDHOVEN &middot; AMSTERDAM &middot; WORLDWIDE">EINDHOVEN &middot; AMSTERDAM &middot; WORLDWIDE</span>
             </div>
-            <button type="button" id="heroSoundBtn" class="hero-sound-btn" aria-label="Toggle showreel audio">
-              <svg class="sound-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-              </svg>
-              <span class="sound-text" data-nl="Geluid Aan" data-en="Sound On">Geluid Aan</span>
-            </button>
+
+            <div class="hero-top-actions">
+              <div class="hero-stack-counter" id="heroStackCounter">
+                <span id="heroActiveNum" class="counter-num">01</span>
+                <span class="counter-sep">/</span>
+                <span class="counter-total">04</span>
+              </div>
+              <button type="button" id="heroSoundBtn" class="hero-sound-btn" aria-label="Toggle showreel audio">
+                <svg class="sound-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                </svg>
+                <span class="sound-text" data-nl="Geluid Aan" data-en="Sound On">Geluid Aan</span>
+              </button>
+            </div>
           </div>
 
-          <div class="hero-main-grid">
-            <div>
-              <h1 class="hero-headline"
-                  data-nl="Video's die kijkers omzetten in <span class='accent-italic'>klanten.</span>"
-                  data-en="Cinematic video built to turn views into <span class='accent-italic'>revenue.</span>">
-                Video's die kijkers omzetten in <span class="accent-italic">klanten.</span>
-              </h1>
-              <p class="hero-subcopy"
-                 data-nl="Wij schrijven de scripts, filmen 1 dag op locatie, editen 10 tot 30+ video's, posten op 5 kanalen én draaien Meta-advertenties die leads rechtstreeks in je CRM zetten."
-                 data-en="We script, shoot on location in 1 day, edit 10 to 30+ high-retention videos, publish across 5 channels, and run Meta ads that pipe qualified leads straight into your CRM.">
-                Wij schrijven de scripts, filmen 1 dag op locatie, editen 10 tot 30+ video's, posten op 5 kanalen én draaien Meta-advertenties die leads rechtstreeks in je CRM zetten.
-              </p>
-
-              <div class="hero-cta-row">
-                <a href="#vault" class="btn-primary">
-                  <span data-nl="▼ Bekijk Alle Video's (26)" data-en="▼ Explore Video Vault (26)">▼ Bekijk Alle Video's (26)</span>
-                </a>
-                <button type="button" id="watchShowreelBtn" class="btn-ghost">
-                  <span>▶</span>
-                  <span data-nl="4K Cinema Film Afspelen" data-en="Play 4K Cinema Feature">4K Cinema Film Afspelen</span>
-                </button>
+          <!-- The 16:9 Widescreen Cinema Display (Original Ratio, Full Visibility) -->
+          <div class="hero-cinema-viewport" id="heroViewport">
+            <!-- Video Slide 0 (Agency Showreel) -->
+            <div class="hero-cinema-slide is-active" data-slide="0">
+              <video class="hero-slide-video" id="heroBgVideo" src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792350942942-eq26nz?alt=media" autoplay muted loop playsinline preload="auto"></video>
+              <div class="hero-slide-caption">
+                <span class="slide-kicker">01 &middot; AGENCY SHOWREEL</span>
+                <h2 class="slide-headline">GUN Productions &mdash; Master Reel &amp; Regie</h2>
               </div>
-
-              <p class="hero-subline-credit" data-nl="Onafhankelijke videoproductie &amp; regie door Mika van der Gun · Sony Cinema Line" data-en="Independent cinema direction &amp; video marketing by Mika van der Gun · Sony Cinema Line">
-                Onafhankelijke videoproductie &amp; regie door Mika van der Gun · Sony Cinema Line
-              </p>
             </div>
 
-            <!-- Interactive Live Hero Reel Switcher -->
-            <aside class="hero-reel-dock" aria-label="Switch background reel">
-              <div class="reel-dock-header">
-                <span data-nl="Geselecteerde Showreels" data-en="Featured Showreels">Geselecteerde Showreels</span>
-                <span class="dock-indicator" aria-hidden="true">●</span>
+            <!-- Video Slide 1 (On Location Shoot) -->
+            <div class="hero-cinema-slide" data-slide="1">
+              <video class="hero-slide-video" src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971631196-hjcgfx?alt=media" autoplay muted loop playsinline preload="auto"></video>
+              <div class="hero-slide-caption">
+                <span class="slide-kicker">02 &middot; ON LOCATION SHOOT</span>
+                <h2 class="slide-headline">Sony FX6 Cinema Line &middot; 1 Dag = 30+ Video's</h2>
               </div>
-              <div id="heroReelList" class="reel-switcher-list"></div>
-            </aside>
-          </div>
-        </div>
+            </div>
 
-        <!-- Verified Metrics Bar -->
-        <div class="metrics-strip">
-          <div class="metric-pill-card">
-            <span class="metric-value">€10,86</span>
-            <span class="metric-label" data-nl="Per sollicitant (76 aanmeldingen)" data-en="Cost per applicant (76 hires funnel)">Per sollicitant (76 aanmeldingen)</span>
-            <span class="metric-client-tag">Timar Security</span>
+            <!-- Video Slide 2 (High-Retention Edit) -->
+            <div class="hero-cinema-slide" data-slide="2">
+              <video class="hero-slide-video" src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971746902-hr2qx0?alt=media" autoplay muted loop playsinline preload="auto"></video>
+              <div class="hero-slide-caption">
+                <span class="slide-kicker">03 &middot; EDITING &amp; GRADE</span>
+                <h2 class="slide-headline">High-Retention Montage &amp; DaVinci Resolve Color</h2>
+              </div>
+            </div>
+
+            <!-- Video Slide 3 (Paid Media & Leads) -->
+            <div class="hero-cinema-slide" data-slide="3">
+              <video class="hero-slide-video" src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791964927924-fc2k93?alt=media" autoplay muted loop playsinline preload="auto"></video>
+              <div class="hero-slide-caption">
+                <span class="slide-kicker">04 &middot; DIRECT RESPONSE</span>
+                <h2 class="slide-headline">Meta Ads &amp; Directe CRM Leadgeneratie</h2>
+              </div>
+            </div>
           </div>
-          <div class="metric-pill-card">
-            <span class="metric-value">2.0M+</span>
-            <span class="metric-label" data-nl="Organische &amp; betaalde video views" data-en="Organic &amp; paid video views">Organische &amp; betaalde video views</span>
-            <span class="metric-client-tag">Roy the Poolboy</span>
-          </div>
-          <div class="metric-pill-card">
-            <span class="metric-value">€16,09</span>
-            <span class="metric-label" data-nl="Kosten per gekwalificeerde B2B lead" data-en="Cost per qualified B2B lead">Kosten per gekwalificeerde B2B lead</span>
-            <span class="metric-client-tag">Bouwbedrijf Meijer</span>
-          </div>
-          <div class="metric-pill-card">
-            <span class="metric-value">367K+</span>
-            <span class="metric-label" data-nl="Weergaven uit slechts 4 video's" data-en="Views generated from just 4 videos">Weergaven uit slechts 4 video's</span>
-            <span class="metric-client-tag">VdVelde Waterplanten BV</span>
+
+          <!-- Bottom scroll indicator with scrub progress line -->
+          <div class="hero-cinema-footer">
+            <span class="scroll-instruction" data-nl="Scroll naar beneden om video's te wisselen &darr;" data-en="Scroll down to stack video reels &darr;">Scroll naar beneden om video's te wisselen &darr;</span>
+            <div class="scroll-progress-bar"><div class="scroll-progress-fill" id="heroScrollProgress"></div></div>
           </div>
         </div>
       </div>
@@ -180,6 +157,173 @@
          PRIMARY FOCUS: UNIFIED INTERACTIVE VIDEO SHOWCASE VAULT
          Centered 16:9 Cinema Videos on Every Row + Compact Badges
          ===================================================================== -->
+        <!-- =====================================================================
+         JESPER LANDBERG STYLE HORIZONTAL SCROLLING SLIDES SHOWCASE
+         (Smooth Horizontal Scroll driven by Vertical Wheel / Touch)
+         ===================================================================== -->
+    <section class="jesper-3d-showcase-section" id="jesperShowcase">
+      <!-- 3D Cylindrical Perspective Stage (100vh pinned) -->
+      <div class="jesper-stage-wrap">
+        <!-- Floating Corner HUD Navigation (Identical to Jesper Landberg) -->
+        <div class="jesper-hud-top">
+          <div class="hud-item hud-left">GUN PRODUCTIONS</div>
+          <div class="hud-item hud-right" data-nl="DIRECTIE &middot; MIKA VAN DER GUN" data-en="DIRECTED BY MIKA VAN DER GUN">DIRECTIE &middot; MIKA VAN DER GUN</div>
+        </div>
+
+        <div class="jesper-hud-bottom">
+          <div class="hud-item hud-left">
+            <span class="hud-pill">FEATURED</span>
+            <span class="hud-sep">/</span>
+            <a href="#vault" class="hud-link" data-nl="ALLE 26 VIDEO'S" data-en="ALL 26 VIDEOS">ALLE 26 VIDEO'S</a>
+          </div>
+          <div class="hud-item hud-right">
+            <span class="hud-scroll-cue" data-nl="SCROLL NAAR BENEDEN OM TE SLIDEN &rarr;" data-en="SCROLL DOWN TO SLIDE &rarr;">SCROLL NAAR BENEDEN OM TE SLIDEN &rarr;</span>
+          </div>
+        </div>
+
+        <!-- 3D Perspective Grid Floor (Exact match to Jesper Landberg reference) -->
+        <div class="jesper-perspective-floor" aria-hidden="true"></div>
+
+        <!-- Centered 3D Curved Track -->
+        <div class="jesper-carousel-stage" id="jesperStage">
+          <div class="jesper-curved-track" id="jesperTrack">
+            <!-- Slide 01: 16:9 Cinema Widescreen -->
+            <article class="jesper-card ratio-cinema" data-index="0" data-id="antarctica-sea-shepherd" tabindex="0" role="button">
+              <div class="card-media-layer">
+                <img src="https://img.youtube.com/vi/A2LEw_J477o/hqdefault.jpg" alt="Antarctica with Sea Shepherd" class="card-media-element" />
+              </div>
+              <div class="card-gradient-scrim" aria-hidden="true"></div>
+              <div class="card-top-info">
+                <span class="card-format-pill">16:9 &middot; Cinema 4K</span>
+              </div>
+              <div class="card-bottom-info">
+                <h3 class="card-project-title">Antarctica with Sea Shepherd</h3>
+                <div class="card-arrow-circle" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 02: 9:16 Vertical Reel -->
+            <article class="jesper-card ratio-vertical" data-index="1" data-id="timar-security" tabindex="0" role="button">
+              <div class="card-media-layer">
+                <video src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413343-n5294b?alt=media" autoplay muted loop playsinline preload="auto" class="card-media-element"></video>
+              </div>
+              <div class="card-gradient-scrim" aria-hidden="true"></div>
+              <div class="card-top-info">
+                <span class="card-format-pill">9:16 &middot; Social Reel</span>
+              </div>
+              <div class="card-bottom-info">
+                <h3 class="card-project-title">Timar Security</h3>
+                <div class="card-arrow-circle" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 03: 9:16 Vertical Reel -->
+            <article class="jesper-card ratio-vertical" data-index="2" data-id="azura-ad" tabindex="0" role="button">
+              <div class="card-media-layer">
+                <video src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413342-5v61kp?alt=media" autoplay muted loop playsinline preload="auto" class="card-media-element"></video>
+              </div>
+              <div class="card-gradient-scrim" aria-hidden="true"></div>
+              <div class="card-top-info">
+                <span class="card-format-pill">9:16 &middot; Meta Ad</span>
+              </div>
+              <div class="card-bottom-info">
+                <h3 class="card-project-title">Azura Skincare</h3>
+                <div class="card-arrow-circle" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 04: 16:9 Cinema Widescreen -->
+            <article class="jesper-card ratio-cinema" data-index="3" data-id="skiing-switzerland" tabindex="0" role="button">
+              <div class="card-media-layer">
+                <img src="https://img.youtube.com/vi/6Cz_mut8UmQ/hqdefault.jpg" alt="Skiing in Switzerland" class="card-media-element" />
+              </div>
+              <div class="card-gradient-scrim" aria-hidden="true"></div>
+              <div class="card-top-info">
+                <span class="card-format-pill">16:9 &middot; Alpine Cinema</span>
+              </div>
+              <div class="card-bottom-info">
+                <h3 class="card-project-title">Skiing in Switzerland</h3>
+                <div class="card-arrow-circle" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 05: 9:16 Vertical Reel -->
+            <article class="jesper-card ratio-vertical" data-index="4" data-id="roy-poolboy" tabindex="0" role="button">
+              <div class="card-media-layer">
+                <video src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413342-6sq2fm?alt=media" autoplay muted loop playsinline preload="auto" class="card-media-element"></video>
+              </div>
+              <div class="card-gradient-scrim" aria-hidden="true"></div>
+              <div class="card-top-info">
+                <span class="card-format-pill">9:16 &middot; Viral Serie</span>
+              </div>
+              <div class="card-bottom-info">
+                <h3 class="card-project-title">Roy the Poolboy</h3>
+                <div class="card-arrow-circle" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 06: 16:9 Cinema Widescreen -->
+            <article class="jesper-card ratio-cinema" data-index="5" data-id="short-fpv-drone" tabindex="0" role="button">
+              <div class="card-media-layer">
+                <img src="https://img.youtube.com/vi/O-j2jWV501s/hqdefault.jpg" alt="FPV Drone One-Shot" class="card-media-element" />
+              </div>
+              <div class="card-gradient-scrim" aria-hidden="true"></div>
+              <div class="card-top-info">
+                <span class="card-format-pill">16:9 &middot; FPV Drone 4K</span>
+              </div>
+              <div class="card-bottom-info">
+                <h3 class="card-project-title">FPV Drone One-Shot</h3>
+                <div class="card-arrow-circle" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 07: 9:16 Vertical Reel (Verified Active MP4) -->
+            <article class="jesper-card ratio-vertical" data-index="6" data-id="vdvelde-waterplanten" tabindex="0" role="button">
+              <div class="card-media-layer">
+                <video src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792354413343-fzzozt?alt=media" autoplay muted loop playsinline preload="auto" class="card-media-element"></video>
+              </div>
+              <div class="card-gradient-scrim" aria-hidden="true"></div>
+              <div class="card-top-info">
+                <span class="card-format-pill">9:16 &middot; Social Serie</span>
+              </div>
+              <div class="card-bottom-info">
+                <h3 class="card-project-title">VdVelde Waterplanten</h3>
+                <div class="card-arrow-circle" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="vault" class="vault-section">
       <div class="container">
         <div class="section-header-row">
