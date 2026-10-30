@@ -222,7 +222,8 @@ const VIDEO_VAULT = [
     bentoRole: 'cinema',
     featured: true,
     type: 'mp4',
-    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971357671-s74cdu?alt=media',
+    silentStream: true,
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971631196-hjcgfx?alt=media',
     ytId: 'IhgRVwKZE98',
     thumb: 'https://img.youtube.com/vi/IhgRVwKZE98/hqdefault.jpg'
   },
@@ -371,7 +372,8 @@ const VIDEO_VAULT = [
     bentoRole: 'cinema',
     featured: false,
     type: 'mp4',
-    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764079791736-fbhury?alt=media&token=904c0f3b-47cc-4ebc-a240-e7dfaa6bb7bf',
+    silentStream: true,
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791964927924-fc2k93?alt=media',
     ytId: 'DG_4dUjf5xE',
     thumb: 'https://img.youtube.com/vi/DG_4dUjf5xE/hqdefault.jpg'
   },
@@ -386,7 +388,8 @@ const VIDEO_VAULT = [
     bentoRole: 'cinema',
     featured: false,
     type: 'mp4',
-    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764082820534-qnltno?alt=media&token=a25312e2-8556-4896-9983-aaad79baf041',
+    silentStream: true,
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791965955170-y2s7zy?alt=media',
     ytId: 'L1EdLoQjgEI',
     thumb: 'https://img.youtube.com/vi/L1EdLoQjgEI/hqdefault.jpg'
   },
@@ -401,7 +404,8 @@ const VIDEO_VAULT = [
     bentoRole: 'cinema',
     featured: false,
     type: 'mp4',
-    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1764086398906-ck2wjp?alt=media&token=688cd9d6-9e03-45c8-a38a-7d5f6fa94b7c',
+    silentStream: true,
+    videoSrc: 'https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791963742291-xpzlle?alt=media',
     ytId: 'FdK785ZXfhs',
     thumb: 'https://img.youtube.com/vi/FdK785ZXfhs/hqdefault.jpg'
   },
@@ -1204,10 +1208,11 @@ function initGsapAnimations() {
   if (heroStackEl && heroSlides.length > 0) {
     ScrollTrigger.create({
       trigger: heroStackEl,
-      start: 'top top',
+      start: () => heroStackEl.offsetHeight > window.innerHeight ? 'bottom bottom' : 'top top',
       end: '+=1800',
       pin: true,
       scrub: 0.6,
+      invalidateOnRefresh: true,
       onUpdate: (self) => {
         const progress = self.progress;
         const numSlides = heroSlides.length;
