@@ -98,12 +98,16 @@
           <div class="hero-scrim" aria-hidden="true"></div>
 
           <div class="hero-top-bar">
-            <div class="cinema-badge">
-              <span class="live-dot" aria-hidden="true"></span>
-              <span data-nl="Eindhoven · Cinema &amp; Performance Video Bureau" data-en="Eindhoven · Cinema &amp; Performance Video Agency">Eindhoven · Cinema &amp; Performance Video Bureau</span>
+            <div class="hero-studio-meta">
+              <span class="meta-brand">GUN PRODUCTIONS</span>
+              <span class="meta-divider" aria-hidden="true">/</span>
+              <span class="meta-tag" data-nl="EINDHOVEN &middot; AMSTERDAM &middot; WORLDWIDE" data-en="EINDHOVEN &middot; AMSTERDAM &middot; WORLDWIDE">EINDHOVEN &middot; AMSTERDAM &middot; WORLDWIDE</span>
             </div>
-            <button type="button" id="heroSoundBtn" class="hero-sound-btn">
-              🔇 <span data-nl="Geluid Aan" data-en="Unmute Reel">Geluid Aan</span>
+            <button type="button" id="heroSoundBtn" class="hero-sound-btn" aria-label="Toggle showreel audio">
+              <svg class="sound-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+              </svg>
+              <span class="sound-text" data-nl="Geluid Aan" data-en="Sound On">Geluid Aan</span>
             </button>
           </div>
 
@@ -130,18 +134,16 @@
                 </button>
               </div>
 
-              <div class="hero-pill-tags">
-                <span class="hero-mini-tag" data-nl="✓ 10–30+ Video's / maand" data-en="✓ 10–30+ Videos / month">✓ 10–30+ Video's / maand</span>
-                <span class="hero-mini-tag" data-nl="✓ 1 Aanspreekpunt" data-en="✓ Single Point of Contact">✓ 1 Aanspreekpunt</span>
-                <span class="hero-mini-tag" data-nl="✓ Geen jaarcontract" data-en="✓ No Annual Lock-in">✓ Geen jaarcontract</span>
-              </div>
+              <p class="hero-subline-credit" data-nl="Onafhankelijke videoproductie &amp; regie door Mika van der Gun · Sony Cinema Line" data-en="Independent cinema direction &amp; video marketing by Mika van der Gun · Sony Cinema Line">
+                Onafhankelijke videoproductie &amp; regie door Mika van der Gun · Sony Cinema Line
+              </p>
             </div>
 
             <!-- Interactive Live Hero Reel Switcher -->
             <aside class="hero-reel-dock" aria-label="Switch background reel">
               <div class="reel-dock-header">
-                <span data-nl="Live Hero Preview Wisselen" data-en="Switch Live Hero Reel">Live Hero Preview Wisselen</span>
-                <span>HD 60FPS</span>
+                <span data-nl="Geselecteerde Showreels" data-en="Featured Showreels">Geselecteerde Showreels</span>
+                <span class="dock-indicator" aria-hidden="true">●</span>
               </div>
               <div id="heroReelList" class="reel-switcher-list"></div>
             </aside>
@@ -199,7 +201,7 @@
         <div class="vault-toolbar">
           <div class="filter-tabs" role="tablist" aria-label="Video Portfolio Filters">
             <button type="button" class="filter-tab is-active" data-filter="featured">
-              <span data-nl="★ Uitgelichte Mix" data-en="★ Featured Bento">★ Uitgelichte Mix</span>
+              <span data-nl="Uitgelicht Werk" data-en="Featured Work">Uitgelicht Werk</span>
               <span class="tab-count">12</span>
             </button>
             <button type="button" class="filter-tab" data-filter="ads">
@@ -372,64 +374,44 @@
     </section>
 
     <!-- =====================================================================
-         AGENCY COMPARISON + FOUNDER MIKA VAN DER GUN
+         AGENCY CRAFT PILLARS + FOUNDER MIKA VAN DER GUN
          ===================================================================== -->
     <section id="founder" class="compare-founder-section">
       <div class="container">
         <div class="section-header-row">
           <div>
-            <span class="eyebrow" data-nl="Van 3 Partijen Naar 1 Partner" data-en="Replace 3 Vendors With 1 Partner">Van 3 Partijen Naar 1 Partner</span>
-            <h2 class="section-title" data-nl="Bijna niemand kan allebei." data-en="Cinema craft meets performance ROI.">Bijna niemand kan allebei.</h2>
+            <span class="eyebrow" data-nl="Onze Visie &amp; Werkwijze" data-en="Our Vision &amp; Craft">Onze Visie &amp; Werkwijze</span>
+            <h2 class="section-title" data-nl="Bioscoopkwaliteit die daadwerkelijk converteert." data-en="Cinema craft engineered to convert.">Bioscoopkwaliteit die daadwerkelijk converteert.</h2>
+            <p class="section-desc" data-nl="Waar traditionele videografen stoppen bij 'mooie beelden' en ad-agencies saaie templates gebruiken, bouwen wij filmische assets die autoriteit en omzet leveren." data-en="Where freelance videographers stop at pretty visuals and ad agencies churn out generic templates, we engineer cinematic brand assets that command respect and generate qualified pipeline.">
+              Waar traditionele videografen stoppen bij 'mooie beelden' en ad-agencies saaie templates gebruiken, bouwen wij filmische assets die autoriteit en omzet leveren.
+            </p>
           </div>
         </div>
 
-        <div class="compare-table-wrap">
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th data-nl="Partij" data-en="Provider">Partij</th>
-                <th>Scripts &amp; Hooks</th>
-                <th data-nl="Cinema Filmen" data-en="Cinema Shoot">Cinema Filmen</th>
-                <th>Retention Edit</th>
-                <th data-nl="Posten (5 Kanalen)" data-en="5-Channel Posting">Posten (5 Kanalen)</th>
-                <th>Meta Ads &amp; CRM</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-nl="Losse Videograaf" data-en="Freelance Videographer">Losse Videograaf</td>
-                <td>—</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>—</td>
-                <td>—</td>
-              </tr>
-              <tr>
-                <td data-nl="Standaard Ad Agency" data-en="Traditional Ad Agency">Standaard Ad Agency</td>
-                <td>✓</td>
-                <td>—</td>
-                <td>—</td>
-                <td>—</td>
-                <td>✓</td>
-              </tr>
-              <tr>
-                <td data-nl="Marketeer in Dienst" data-en="In-House Marketer">Marketeer in Dienst</td>
-                <td>±</td>
-                <td>—</td>
-                <td>—</td>
-                <td>✓</td>
-                <td>±</td>
-              </tr>
-              <tr class="winner-row">
-                <td>GUN PRODUCTIONS</td>
-                <td>✓ Inclusief</td>
-                <td>✓ 4K Cinema</td>
-                <td>✓ 10–30+ / mnd</td>
-                <td>✓ Volledig beheer</td>
-                <td>✓ Direct in CRM</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="agency-pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">01</span>
+            <h3 class="pillar-title" data-nl="Sony FX6 Cinema Line" data-en="Sony FX6 Cinema Line">Sony FX6 Cinema Line</h3>
+            <p class="pillar-desc" data-nl="Geen oppervlakkige smartphone-video's. Wij filmen op professionele cinema-camera's met prime-lenzen, geavanceerde belichting en DaVinci Resolve color grading. Dit geeft jouw merk direct autoriteit en filmische allure." data-en="No low-effort smartphone clips. We shoot on professional cinema cameras with fast prime lenses, cinema lighting, and DaVinci Resolve color grading — instantly establishing industry leadership.">
+              Geen oppervlakkige smartphone-video's. Wij filmen op professionele cinema-camera's met prime-lenzen, geavanceerde belichting en DaVinci Resolve color grading. Dit geeft jouw merk direct autoriteit en filmische allure.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <span class="pillar-num">02</span>
+            <h3 class="pillar-title" data-nl="Storytelling &amp; Retentie" data-en="Retention-First Storytelling">Storytelling &amp; Retentie</h3>
+            <p class="pillar-desc" data-nl="Mooie beelden zijn waardeloos als niemand blijft kijken. We ontwerpen scherpe scripts en dynamische montage met professioneel sound design die kijkers vasthouden van frame één tot aan de call-to-action." data-en="Stunning visuals are useless if viewers drop off. We engineer sharp scripts, dynamic pacing, and immersive sound design that hook viewers from the very first second to the final call to action.">
+              Mooie beelden zijn waardeloos als niemand blijft kijken. We ontwerpen scherpe scripts en dynamische montage met professioneel sound design die kijkers vasthouden van frame één tot aan de call-to-action.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <span class="pillar-num">03</span>
+            <h3 class="pillar-title" data-nl="Volledig Ontzorgd Maandmodel" data-en="Turn-Key Monthly Partnership">Volledig Ontzorgd Maandmodel</h3>
+            <p class="pillar-desc" data-nl="Eén filmdag per maand op locatie levert 10 tot 30+ video's op voor al jouw kanalen, inclusief advertenties en CRM-koppeling. Eén vast aanspreekpunt, geen losse freelancers, en maandelijks opzegbaar." data-en="One monthly shoot day on location delivers 10 to 30+ finished videos distributed across 5 channels plus targeted ads. Single point of contact, zero hassle, and month-to-month flexibility.">
+              Eén filmdag per maand op locatie levert 10 tot 30+ video's op voor al jouw kanalen, inclusief advertenties en CRM-koppeling. Eén vast aanspreekpunt, geen losse freelancers, en maandelijks opzegbaar.
+            </p>
+          </div>
         </div>
 
         <div class="founder-grid">
@@ -589,8 +571,8 @@
         <span class="launcher-status-dot" aria-hidden="true"></span>
       </div>
       <div class="launcher-text-wrap">
-        <span class="launcher-title">Chat &amp; Bel Mika</span>
-        <span class="launcher-subtitle">AI Studio Desk · Online</span>
+        <span class="launcher-title">Direct Contact</span>
+        <span class="launcher-subtitle">Mika van der Gun · Studio Desk</span>
       </div>
       <div class="launcher-icon-badge">
         <svg class="icon-chat" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -612,8 +594,8 @@
             <span class="header-pulse-dot" aria-hidden="true"></span>
           </div>
           <div>
-            <div class="panel-agent-name">Mika van der Gun <span class="ai-badge">AI Studio</span></div>
-            <div class="panel-agent-status" data-nl="Actief · Reactie binnen 2 min" data-en="Active · Reply within 2 min">Actief · Reactie binnen 2 min</div>
+            <div class="panel-agent-name">Mika van der Gun <span class="director-badge">Regisseur</span></div>
+            <div class="panel-agent-status" data-nl="Direct Contact · Studio Eindhoven" data-en="Direct Contact · Studio Eindhoven">Direct Contact · Studio Eindhoven</div>
           </div>
         </div>
         <button type="button" id="chatPanelCloseBtn" class="chat-panel-close-btn" aria-label="Close Chat Window">✕</button>
@@ -623,11 +605,11 @@
       <nav class="chat-mode-tabs" role="tablist" aria-label="Communication Options">
         <button type="button" id="tabModeChat" class="mode-tab is-active" role="tab" aria-selected="true" data-mode="chat">
           <span class="mode-tab-icon">💬</span>
-          <span data-nl="Live Chat Assistent" data-en="Live Chat Assistant">Live Chat Assistent</span>
+          <span data-nl="Stel een Vraag" data-en="Ask a Question">Stel een Vraag</span>
         </button>
         <button type="button" id="tabModeCall" class="mode-tab" role="tab" aria-selected="false" data-mode="call">
           <span class="mode-tab-icon">📞</span>
-          <span data-nl="AI Voice Call Agent" data-en="AI Voice Call Agent">AI Voice Call Agent</span>
+          <span data-nl="Bellen &amp; WhatsApp" data-en="Call &amp; WhatsApp">Bellen &amp; WhatsApp</span>
         </button>
       </nav>
 
@@ -652,7 +634,7 @@
         <!-- Typing Indicator -->
         <div id="chatTypingIndicator" class="chat-typing-indicator" aria-hidden="true" style="display:none;">
           <span></span><span></span><span></span>
-          <span class="typing-label">Mika AI typt...</span>
+          <span class="typing-label">Mika typt...</span>
         </div>
 
         <!-- Message Input Row -->
@@ -676,7 +658,7 @@
 
           <div class="call-status-badge" id="callStatusBadge">
             <span class="status-pulse-dot"></span>
-            <span id="callStatusText" data-nl="AI Voice Agent Klaar" data-en="AI Voice Agent Ready">AI Voice Agent Klaar</span>
+            <span id="callStatusText" data-nl="Mika van der Gun · Beschikbaar" data-en="Mika van der Gun · Available">Mika van der Gun · Beschikbaar</span>
           </div>
 
           <!-- Animated Audio Waveform -->
@@ -685,20 +667,20 @@
             <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
           </div>
 
-          <p class="call-desc" data-nl="Start een direct live audiogesprek met onze getrainde video-strateeg agent, of bel Mika rechtstreeks." data-en="Start an instant live audio call with our trained video-strategy AI agent, or call Mika directly.">
-            Start een direct live audiogesprek met onze getrainde video-strateeg agent, of bel Mika rechtstreeks.
+          <p class="call-desc" data-nl="Neem direct contact op met Mika via WhatsApp of bel voor een snelle kennismaking over jouw videoproject." data-en="Get in touch directly with Mika via WhatsApp or call for a quick discovery about your video project.">
+            Neem direct contact op met Mika via WhatsApp of bel voor een snelle kennismaking over jouw videoproject.
           </p>
 
           <!-- Call Action Controls -->
           <div class="call-actions-stack">
-            <button type="button" id="startAiCallBtn" class="call-primary-btn">
-              <span class="btn-call-icon">🎙️</span>
-              <span id="startAiCallText" data-nl="Start AI Voice Gesprek Nu" data-en="Start AI Voice Call Now">Start AI Voice Gesprek Nu</span>
-            </button>
+            <a href="https://wa.me/31642671398" target="_blank" rel="noopener" class="call-primary-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;gap:0.55rem;">
+              <span class="btn-call-icon">💬</span>
+              <span data-nl="WhatsApp Mika Direct" data-en="WhatsApp Mika Directly">WhatsApp Mika Direct</span>
+            </a>
 
             <a href="tel:+31642671398" class="call-secondary-btn">
               <span>📞</span>
-              <span data-nl="Bel Mika Direct (+31 6 42 67 13 98)" data-en="Call Mika Direct (+31 6 42 67 13 98)">Bel Mika Direct (+31 6 42 67 13 98)</span>
+              <span data-nl="Bel Mika (+31 6 42 67 13 98)" data-en="Call Mika (+31 6 42 67 13 98)">Bel Mika (+31 6 42 67 13 98)</span>
             </a>
           </div>
 

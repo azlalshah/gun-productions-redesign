@@ -414,28 +414,43 @@ main[id] {
   padding: 1.5rem 2rem 0;
 }
 
-.cinema-badge {
+/* Authentic Editorial Studio Meta (No fake neon dots or SaaS capsule borders) */
+.hero-studio-meta {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-pill);
-  background: rgba(7, 7, 8, 0.6);
-  border: 1px solid rgba(253, 250, 227, 0.2);
-  backdrop-filter: blur(12px);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--cream-90);
+  color: var(--cream);
+  padding: 0.3rem 0;
 }
 
-.cinema-badge .live-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent-emerald);
-  box-shadow: 0 0 10px var(--accent-emerald);
+.hero-studio-meta .meta-brand {
+  color: var(--cream);
+  letter-spacing: 0.14em;
+}
+
+.hero-studio-meta .meta-divider {
+  color: rgba(253, 250, 227, 0.35);
+  font-weight: 400;
+}
+
+.hero-studio-meta .meta-tag {
+  color: var(--cream-70);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.hero-subline-credit {
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--cream-70);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .hero-sound-btn {
@@ -2519,4 +2534,71 @@ dialog#cinemaDialog.is-vertical-modal .dialog-player-stage {
   font-size: 0.74rem;
   color: var(--accent-emerald);
   font-weight: 700;
+}
+
+/* ==========================================================================
+   AGENCY CRAFT PILLARS (Clean editorial design replacing generic table)
+   ========================================================================== */
+.agency-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(253, 250, 227, 0.35);
+}
+
+.pillar-num {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--cream-70);
+  margin-bottom: 1.25rem;
+}
+
+.pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--cream);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.pillar-desc {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.director-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(253, 250, 227, 0.15);
+  color: var(--cream);
+  margin-left: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .agency-pillars-grid {
+    grid-template-columns: 1fr;
+  }
 }
