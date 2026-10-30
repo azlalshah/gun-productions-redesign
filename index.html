@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUN Productions — High-Impact Video Marketing &amp; Cinema Studio</title>
+  <meta name="description" content="Maandelijks gekwalificeerde leads dankzij high-end videomarketing en cinema producties uit Eindhoven. 1 filmdag = 10 tot 30+ video's + Meta Ads rechtstreeks in je CRM." />
+  
+  <!-- Preconnect to video & media CDNs for instant loading -->
+  <link rel="preconnect" href="https://cdn.framekit.ai" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.framekit.ai" />
+  <link rel="preconnect" href="https://img.youtube.com" crossorigin />
+  <link rel="dns-prefetch" href="https://img.youtube.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- GSAP & ScrollTrigger for smooth section-reveal animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis for buttery-smooth 60fps momentum scrolling -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+<body>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div id="playCursor" class="play-cursor" aria-hidden="true">▶ Play Video</div>
+
+  <!-- =====================================================================
+       GLASSMORPHIC FLOATING HEADER (RESPONSIVE WITH MOBILE DRAWER)
+       ===================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-shell" aria-label="Primary Navigation">
+      <a href="#top" class="brand-logo">
+        <span class="brand-rec-dot" aria-hidden="true"></span>
+        <span>GUN PRODUCTIONS</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#vault" class="nav-pill is-active" data-nl="Video Portfolio" data-en="Video Vault">Video Portfolio</a>
+        <a href="#results" class="nav-pill" data-nl="Klant Cijfers" data-en="Client ROI">Klant Cijfers</a>
+        <a href="#system" class="nav-pill" data-nl="Werkwijze" data-en="1-Day System">Werkwijze</a>
+        <a href="#founder" class="nav-pill" data-nl="Over Mika" data-en="About Mika">Over Mika</a>
+        <a href="#faq" class="nav-pill">FAQ</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn is-active" data-lang="nl">NL</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="https://calendly.com/mikavdgun/discovery" target="_blank" rel="noopener" class="btn-primary desktop-cta">
+          <span class="cta-full" data-nl="Plan Strategiegesprek ↗" data-en="Book Strategy Call ↗">Plan Strategiegesprek ↗</span>
+          <span class="cta-short" data-nl="Plan Gesprek ↗" data-en="Book Call ↗">Plan Gesprek ↗</span>
+        </a>
+        <button type="button" id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileDrawer" class="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <a href="#vault" class="mobile-nav-link" data-nl="Video Portfolio (26)" data-en="Video Vault (26)">Video Portfolio (26)</a>
+        <a href="#results" class="mobile-nav-link" data-nl="Klant Cijfers" data-en="Client ROI">Klant Cijfers</a>
+        <a href="#system" class="mobile-nav-link" data-nl="Werkwijze" data-en="1-Day System">Werkwijze</a>
+        <a href="#founder" class="mobile-nav-link" data-nl="Over Mika" data-en="About Mika">Over Mika</a>
+        <a href="#faq" class="mobile-nav-link">FAQ</a>
+        <a href="https://calendly.com/mikavdgun/discovery" target="_blank" rel="noopener" class="btn-primary" style="margin-top:0.75rem;width:100%;text-align:center;">
+          <span data-nl="Plan Strategiegesprek ↗" data-en="Book Strategy Call ↗">Plan Strategiegesprek ↗</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       HERO — VIBRANT CINEMATIC SHOWREEL (HIGH CONTRAST & CLEAR FOOTAGE)
+       ===================================================================== -->
+  <main id="top">
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-cinema-frame">
+          <video
+            id="heroBgVideo"
+            class="hero-bg-video"
+            src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1792350942942-eq26nz?alt=media"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            fetchpriority="high"
+            aria-label="GUN Productions Showreel">
+          </video>
+          <!-- Lightened scrim to let footage shine through with vivid colors -->
+          <div class="hero-scrim" aria-hidden="true"></div>
+
+          <div class="hero-top-bar">
+            <div class="cinema-badge">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span data-nl="Eindhoven · Cinema &amp; Performance Video Bureau" data-en="Eindhoven · Cinema &amp; Performance Video Agency">Eindhoven · Cinema &amp; Performance Video Bureau</span>
+            </div>
+            <button type="button" id="heroSoundBtn" class="hero-sound-btn">
+              🔇 <span data-nl="Geluid Aan" data-en="Unmute Reel">Geluid Aan</span>
+            </button>
+          </div>
+
+          <div class="hero-main-grid">
+            <div>
+              <h1 class="hero-headline"
+                  data-nl="Video's die kijkers omzetten in <span class='accent-italic'>klanten.</span>"
+                  data-en="Cinematic video built to turn views into <span class='accent-italic'>revenue.</span>">
+                Video's die kijkers omzetten in <span class="accent-italic">klanten.</span>
+              </h1>
+              <p class="hero-subcopy"
+                 data-nl="Wij schrijven de scripts, filmen 1 dag op locatie, editen 10 tot 30+ video's, posten op 5 kanalen én draaien Meta-advertenties die leads rechtstreeks in je CRM zetten."
+                 data-en="We script, shoot on location in 1 day, edit 10 to 30+ high-retention videos, publish across 5 channels, and run Meta ads that pipe qualified leads straight into your CRM.">
+                Wij schrijven de scripts, filmen 1 dag op locatie, editen 10 tot 30+ video's, posten op 5 kanalen én draaien Meta-advertenties die leads rechtstreeks in je CRM zetten.
+              </p>
+
+              <div class="hero-cta-row">
+                <a href="#vault" class="btn-primary">
+                  <span data-nl="▼ Bekijk Alle Video's (26)" data-en="▼ Explore Video Vault (26)">▼ Bekijk Alle Video's (26)</span>
+                </a>
+                <button type="button" id="watchShowreelBtn" class="btn-ghost">
+                  <span>▶</span>
+                  <span data-nl="4K Cinema Film Afspelen" data-en="Play 4K Cinema Feature">4K Cinema Film Afspelen</span>
+                </button>
+              </div>
+
+              <div class="hero-pill-tags">
+                <span class="hero-mini-tag" data-nl="✓ 10–30+ Video's / maand" data-en="✓ 10–30+ Videos / month">✓ 10–30+ Video's / maand</span>
+                <span class="hero-mini-tag" data-nl="✓ 1 Aanspreekpunt" data-en="✓ Single Point of Contact">✓ 1 Aanspreekpunt</span>
+                <span class="hero-mini-tag" data-nl="✓ Geen jaarcontract" data-en="✓ No Annual Lock-in">✓ Geen jaarcontract</span>
+              </div>
+            </div>
+
+            <!-- Interactive Live Hero Reel Switcher -->
+            <aside class="hero-reel-dock" aria-label="Switch background reel">
+              <div class="reel-dock-header">
+                <span data-nl="Live Hero Preview Wisselen" data-en="Switch Live Hero Reel">Live Hero Preview Wisselen</span>
+                <span>HD 60FPS</span>
+              </div>
+              <div id="heroReelList" class="reel-switcher-list"></div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- Verified Metrics Bar -->
+        <div class="metrics-strip">
+          <div class="metric-pill-card">
+            <span class="metric-value">€10,86</span>
+            <span class="metric-label" data-nl="Per sollicitant (76 aanmeldingen)" data-en="Cost per applicant (76 hires funnel)">Per sollicitant (76 aanmeldingen)</span>
+            <span class="metric-client-tag">Timar Security</span>
+          </div>
+          <div class="metric-pill-card">
+            <span class="metric-value">2.0M+</span>
+            <span class="metric-label" data-nl="Organische &amp; betaalde video views" data-en="Organic &amp; paid video views">Organische &amp; betaalde video views</span>
+            <span class="metric-client-tag">Roy the Poolboy</span>
+          </div>
+          <div class="metric-pill-card">
+            <span class="metric-value">€16,09</span>
+            <span class="metric-label" data-nl="Kosten per gekwalificeerde B2B lead" data-en="Cost per qualified B2B lead">Kosten per gekwalificeerde B2B lead</span>
+            <span class="metric-client-tag">Bouwbedrijf Meijer</span>
+          </div>
+          <div class="metric-pill-card">
+            <span class="metric-value">367K+</span>
+            <span class="metric-label" data-nl="Weergaven uit slechts 4 video's" data-en="Views generated from just 4 videos">Weergaven uit slechts 4 video's</span>
+            <span class="metric-client-tag">VdVelde Waterplanten BV</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         PRIMARY FOCUS: UNIFIED INTERACTIVE VIDEO SHOWCASE VAULT
+         Centered 16:9 Cinema Videos on Every Row + Compact Badges
+         ===================================================================== -->
+    <section id="vault" class="vault-section">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="eyebrow" data-nl="Onze Producties in Actie" data-en="Featured Production Vault">Onze Producties in Actie</span>
+            <h2 class="section-title" data-nl="Bekijk wat wij maken voor merken." data-en="Built to stop the scroll &amp; close deals.">Bekijk wat wij maken voor merken.</h2>
+            <p class="section-desc"
+               data-nl="Van conversiegerichte 9:16 Meta Ads en virale Reels tot 4K 16:9 cinema producties — alles onder één dak."
+               data-en="From high-ROAS 9:16 Meta Ads and viral social series to 4K widescreen cinema films — hover to preview, click for full theater sound.">
+              Van conversiegerichte 9:16 Meta Ads en virale Reels tot 4K 16:9 cinema producties — alles onder één dak.
+            </p>
+          </div>
+          <a href="https://calendly.com/mikavdgun/discovery" target="_blank" rel="noopener" class="btn-ghost">
+            <span data-nl="Wil je dit voor jouw bedrijf? →" data-en="Want this for your brand? →">Wil je dit voor jouw bedrijf? →</span>
+          </a>
+        </div>
+
+        <!-- Category & Format Filter Bar -->
+        <div class="vault-toolbar">
+          <div class="filter-tabs" role="tablist" aria-label="Video Portfolio Filters">
+            <button type="button" class="filter-tab is-active" data-filter="featured">
+              <span data-nl="★ Uitgelichte Mix" data-en="★ Featured Bento">★ Uitgelichte Mix</span>
+              <span class="tab-count">12</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="ads">
+              <span data-nl="Meta Ads &amp; Klant Cases (9:16)" data-en="Client Ads &amp; Cases (9:16)">Meta Ads &amp; Klant Cases (9:16)</span>
+              <span class="tab-count">8</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="shorts">
+              <span data-nl="Shorts &amp; Reels Portfolio (9:16)" data-en="Viral Shorts &amp; Reels (9:16)">Shorts &amp; Reels Portfolio (9:16)</span>
+              <span class="tab-count">8</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="cinema">
+              <span data-nl="4K Cinematic Films (16:9)" data-en="4K Cinematic Films (16:9)">4K Cinematic Films (16:9)</span>
+              <span class="tab-count">10</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="all">
+              <span data-nl="Alles Tonen" data-en="All Videos">Alles Tonen</span>
+              <span class="tab-count">26</span>
+            </button>
+          </div>
+
+          <div class="vault-hint">
+            <span>🔊</span>
+            <span data-nl="Hover voor live preview · Klik voor theatermodus met geluid" data-en="Hover to preview · Click any video for theater player w/ sound">Hover voor live preview · Klik voor theatermodus met geluid</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Video Showcase Grid -->
+        <div id="videoGrid" class="video-grid layout-bento"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         VERIFIED CLIENT ROI & AD SCREENSHOTS
+         ===================================================================== -->
+    <section id="results" class="roi-section">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="eyebrow" data-nl="Bewezen Resultaten" data-en="Verified Ad Manager Proof">Bewezen Resultaten</span>
+            <h2 class="section-title" data-nl="Geen schattingen. Echte klantcijfers." data-en="No vanity metrics. Real client ROI.">Geen schattingen. Echte klantcijfers.</h2>
+          </div>
+        </div>
+
+        <div class="roi-grid">
+          <article class="roi-card">
+            <div class="roi-proof-media">
+              <img src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791964928394-2079e9?alt=media" alt="Meta resultaat Timar Security" loading="lazy" />
+            </div>
+            <div class="roi-body">
+              <div>
+                <div class="roi-big-stat">€10,86</div>
+                <span class="roi-stat-sub" data-nl="Per sollicitant · 76 aanmeldingen" data-en="Per applicant · 76 candidates">Per sollicitant · 76 aanmeldingen</span>
+                <h3 class="roi-client-name">Timar Security</h3>
+                <p class="roi-story"
+                   data-nl="Betaalde Indeed €800/mnd zonder één aanmelding. Met onze recruitment-video's en Meta Ads kwamen er 76 sollicitanten binnen."
+                   data-en="Previously spent €800/mo on Indeed with zero applicants. Our recruitment video funnel generated 76 applicants at €10.86 each.">
+                  Betaalde Indeed €800/mnd zonder één aanmelding. Met onze recruitment-video's en Meta Ads kwamen er 76 sollicitanten binnen.
+                </p>
+              </div>
+              <button type="button" class="roi-watch-link" data-watch-id="timar-ad">
+                ▶ <span data-nl="Bekijk Timar Campagne Video" data-en="Watch Timar Campaign Video">Bekijk Timar Campagne Video</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="roi-card">
+            <div class="roi-proof-media">
+              <img src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791964927924-579p5y?alt=media" alt="Meta resultaat Bouwbedrijf Meijer" loading="lazy" />
+            </div>
+            <div class="roi-body">
+              <div>
+                <div class="roi-big-stat">€16,09</div>
+                <span class="roi-stat-sub" data-nl="Per gekwalificeerde lead" data-en="Per qualified B2B lead">Per gekwalificeerde lead</span>
+                <h3 class="roi-client-name">Bouwbedrijf Meijer</h3>
+                <p class="roi-story"
+                   data-nl="Ze doen inmiddels geen enkele andere marketing meer — 100% van hun nieuwe aanvragen komt uit onze maandelijkse videomachine."
+                   data-en="Replaced all other marketing channels completely — 100% of their inbound project leads now come through our monthly video system.">
+                  Ze doen inmiddels geen enkele andere marketing meer — 100% van hun nieuwe aanvragen komt uit onze maandelijkse videomachine.
+                </p>
+              </div>
+              <button type="button" class="roi-watch-link" data-watch-id="azura-ad">
+                ▶ <span data-nl="Bekijk Lead-Ad Voorbeeld" data-en="Watch Lead-Ad Sample">Bekijk Lead-Ad Voorbeeld</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="roi-card">
+            <div class="roi-proof-media">
+              <img src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791965345585-s0swqy?alt=media" alt="Resultaten Roy the Poolboy" loading="lazy" />
+            </div>
+            <div class="roi-body">
+              <div>
+                <div class="roi-big-stat">2.0M+</div>
+                <span class="roi-stat-sub" data-nl="Weergaven op social media" data-en="Views across social channels">Weergaven op social media</span>
+                <h3 class="roi-client-name">Roy the Poolboy</h3>
+                <p class="roi-story"
+                   data-nl="Meerdere video's ruim boven de 100.000 weergaven. Elke maand bouwen we het bereik verder uit met nieuwe opnamedagen."
+                   data-en="Multiple videos surpassing 100,000+ organic views each, compounding brand authority every single month.">
+                  Meerdere video's ruim boven de 100.000 weergaven. Elke maand bouwen we het bereik verder uit met nieuwe opnamedagen.
+                </p>
+              </div>
+              <button type="button" class="roi-watch-link" data-watch-id="roy-poolboy">
+                ▶ <span data-nl="Bekijk Roy's Video" data-en="Watch Roy's Video">Bekijk Roy's Video</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="roi-card">
+            <div class="roi-proof-media">
+              <img src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791965345586-96nm4h?alt=media" alt="Resultaten VdVelde Waterplanten" loading="lazy" />
+            </div>
+            <div class="roi-body">
+              <div>
+                <div class="roi-big-stat">367K</div>
+                <span class="roi-stat-sub" data-nl="Weergaven uit 4 video's" data-en="Views from 4 videos">Weergaven uit 4 video's</span>
+                <h3 class="roi-client-name">VdVelde Waterplanten BV</h3>
+                <p class="roi-story"
+                   data-nl="Vijverplanten lijken geen 'sexy' onderwerp — toch tikten vier video's uit één opnamedag samen ruim 367.000 views aan."
+                   data-en="Pond plants might not sound 'flashy' — yet just 4 videos from a single shoot day racked up over 367,000 views.">
+                  Vijverplanten lijken geen 'sexy' onderwerp — toch tikten vier video's uit één opnamedag samen ruim 367.000 views aan.
+                </p>
+              </div>
+              <button type="button" class="roi-watch-link" data-watch-id="vdvelde-bv">
+                ▶ <span data-nl="Bekijk VdVelde Serie" data-en="Watch VdVelde Series">Bekijk VdVelde Serie</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         INTERACTIVE 5-STEP VIDEO-TO-CRM MACHINE
+         ===================================================================== -->
+    <section id="system" class="system-section">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="eyebrow" data-nl="1 Dag Filmen · 1 Maand Content" data-en="1 Shoot Day · 1 Full Month of Content">1 Dag Filmen · 1 Maand Content</span>
+            <h2 class="section-title" data-nl="Wij regelen het hele proces." data-en="End-to-end production &amp; distribution.">Wij regelen het hele proces.</h2>
+            <p class="section-desc"
+               data-nl="Klik op een stap hieronder om onze werkwijze achter de schermen te bekijken."
+               data-en="Click any stage below to preview how our team handles scripting, shooting, editing, and Meta ads.">
+              Klik op een stap hieronder om onze werkwijze achter de schermen te bekijken.
+            </p>
+          </div>
+        </div>
+
+        <div class="system-showcase">
+          <div id="pipelineStepsList" class="steps-list"></div>
+
+          <div class="system-video-stage">
+            <video
+              id="pipelineStageVideo"
+              src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971631196-hjcgfx?alt=media"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Behind the scenes production">
+            </video>
+            <div class="system-stage-caption">
+              <span class="eyebrow" style="margin-bottom:0.25rem;" data-nl="Behind The Scenes" data-en="Behind The Scenes">Behind The Scenes</span>
+              <div id="pipelineCaptionTitle" style="font-family:var(--font-display);font-size:1.25rem;font-weight:700;">10 tot 30+ Scripts &amp; Hooks</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         AGENCY COMPARISON + FOUNDER MIKA VAN DER GUN
+         ===================================================================== -->
+    <section id="founder" class="compare-founder-section">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="eyebrow" data-nl="Van 3 Partijen Naar 1 Partner" data-en="Replace 3 Vendors With 1 Partner">Van 3 Partijen Naar 1 Partner</span>
+            <h2 class="section-title" data-nl="Bijna niemand kan allebei." data-en="Cinema craft meets performance ROI.">Bijna niemand kan allebei.</h2>
+          </div>
+        </div>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th data-nl="Partij" data-en="Provider">Partij</th>
+                <th>Scripts &amp; Hooks</th>
+                <th data-nl="Cinema Filmen" data-en="Cinema Shoot">Cinema Filmen</th>
+                <th>Retention Edit</th>
+                <th data-nl="Posten (5 Kanalen)" data-en="5-Channel Posting">Posten (5 Kanalen)</th>
+                <th>Meta Ads &amp; CRM</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-nl="Losse Videograaf" data-en="Freelance Videographer">Losse Videograaf</td>
+                <td>—</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td data-nl="Standaard Ad Agency" data-en="Traditional Ad Agency">Standaard Ad Agency</td>
+                <td>✓</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td data-nl="Marketeer in Dienst" data-en="In-House Marketer">Marketeer in Dienst</td>
+                <td>±</td>
+                <td>—</td>
+                <td>—</td>
+                <td>✓</td>
+                <td>±</td>
+              </tr>
+              <tr class="winner-row">
+                <td>GUN PRODUCTIONS</td>
+                <td>✓ Inclusief</td>
+                <td>✓ 4K Cinema</td>
+                <td>✓ 10–30+ / mnd</td>
+                <td>✓ Volledig beheer</td>
+                <td>✓ Direct in CRM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="founder-grid">
+          <div class="founder-video-wrap">
+            <video
+              src="https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791971357671-s74cdu?alt=media"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Mika van der Gun in studio">
+            </video>
+          </div>
+          <div>
+            <span class="eyebrow" data-nl="De Oprichter" data-en="Meet The Founder">De Oprichter</span>
+            <h3 class="section-title" style="margin-bottom:1rem;">Mika van der Gun</h3>
+            <p style="color:var(--cream-90);font-size:1.08rem;margin:0 0 1rem;"
+               data-nl="“Videograven maken mooie plaatjes die niets verkopen. Marketeers draaien saaie advertenties die binnen één seconde worden weggescrold.”"
+               data-en="“Videographers shoot pretty visuals that don't convert. Marketers run boring ads that get scrolled past in half a second.”">
+              “Videograven maken mooie plaatjes die niets verkopen. Marketeers draaien saaie advertenties die binnen één seconde worden weggescrold.”
+            </p>
+            <p style="color:var(--text-muted);margin:0 0 1.75rem;"
+               data-nl="Met 10 jaar ervaring in marketing en 8 jaar in internationale cinematografie (van Sea Shepherd expedities op Antarctica tot MKB-groeicampagnes in Nederland) combineren wij filmkwaliteit met keiharde leadgeneratie — zonder jaarcontract."
+               data-en="Combining 10 years in performance marketing with 8 years of global cinematography (from Sea Shepherd Antarctica expeditions to scaling Dutch B2B leaders), GUN Productions builds monthly video engines with zero annual lock-in.">
+              Met 10 jaar ervaring in marketing en 8 jaar in internationale cinematografie (van Sea Shepherd expedities op Antarctica tot MKB-groeicampagnes in Nederland) combineren wij filmkwaliteit met keiharde leadgeneratie — zonder jaarcontract.
+            </p>
+            <div class="hero-cta-row">
+              <a href="https://calendly.com/mikavdgun/discovery" target="_blank" rel="noopener" class="btn-primary">
+                <span data-nl="Plan 30-Min Gesprek met Mika ↗" data-en="Book 30-Min Call with Mika ↗">Plan 30-Min Gesprek met Mika ↗</span>
+              </a>
+              <a href="https://wa.me/message/4RQALGIZ5WHYG1" target="_blank" rel="noopener" class="btn-ghost">
+                <span>💬 WhatsApp Direct</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         FAQ SECTION
+         ===================================================================== -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="eyebrow">FAQ</span>
+            <h2 class="section-title" data-nl="Veelgestelde vragen" data-en="Frequently Asked Questions">Veelgestelde vragen</h2>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" name="gun-faq" open>
+            <summary data-nl="Moet ik zelf voor de camera staan?" data-en="Do I have to appear on camera myself?">Moet ik zelf voor de camera staan?</summary>
+            <p data-nl="Dat mag, maar hoeft zeker niet. Het kan een collega zijn, of wij regelen en boeken een professioneel model/presentator voor jouw bedrijf."
+               data-en="Only if you want to! A team member can step in, or we cast and book professional on-camera talent tailored to your brand.">
+              Dat mag, maar hoeft zeker niet. Het kan een collega zijn, of wij regelen en boeken een professioneel model/presentator voor jouw bedrijf.
+            </p>
+          </details>
+          <details class="faq-item" name="gun-faq">
+            <summary data-nl="Hoeveel tijd kost het mij per maand?" data-en="How much of my time does this take?">Hoeveel tijd kost het mij per maand?</summary>
+            <p data-nl="Slechts één filmdag per maand op locatie en een korte afstemming vooraf. Scripts, montage, plaatsing op 5 kanalen en Meta Ads doen wij."
+               data-en="Just one shoot day per month at your location plus a quick alignment call. Scripting, editing, 5-channel publishing, and Meta ads are 100% handled.">
+              Slechts één filmdag per maand op locatie en een korte afstemming vooraf. Scripts, montage, plaatsing op 5 kanalen en Meta Ads doen wij.
+            </p>
+          </details>
+          <details class="faq-item" name="gun-faq">
+            <summary data-nl="Zit ik vast aan een jaarcontract?" data-en="Am I locked into an annual contract?">Zit ik vast aan een jaarcontract?</summary>
+            <p data-nl="Nee. Wij werken maandelijks opzegbaar. Onze resultaten zorgen dat klanten blijven — niet kleine lettertjes."
+               data-en="No. We work month-to-month. Compounding ROI keeps our clients with us — never lock-in contracts.">
+              Nee. Wij werken maandelijks opzegbaar. Onze resultaten zorgen dat klanten blijven — niet kleine lettertjes.
+            </p>
+          </details>
+          <details class="faq-item" name="gun-faq">
+            <summary data-nl="Wat als wij nog geen CRM-systeem hebben?" data-en="What if we don't have a CRM yet?">Wat als wij nog geen CRM-systeem hebben?</summary>
+            <p data-nl="Dan leveren en koppelen wij die geheel gratis, zodat alle Meta-leads direct overzichtelijk binnenkomen."
+               data-en="We set up and include a streamlined CRM free of charge so every lead lands in your pipeline automatically.">
+              Dan leveren en koppelen wij die geheel gratis, zodat alle Meta-leads direct overzichtelijk binnenkomen.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       FOOTER CTA
+       ===================================================================== -->
+  <footer class="footer-cta" id="contact">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <span class="eyebrow" data-nl="Klaar om te schalen?" data-en="Ready to scale with video?">Klaar om te schalen?</span>
+          <h2 class="section-title" data-nl="Plan jouw gratis strategiegesprek." data-en="Book your free 30-min video strategy call.">Plan jouw gratis strategiegesprek.</h2>
+          <p class="section-desc" data-nl="Geen tussenpersonen. Direct contact met Mika van der Gun." data-en="No account managers. Direct strategy session with Mika van der Gun.">Geen tussenpersonen. Direct contact met Mika van der Gun.</p>
+        </div>
+        <div class="hero-cta-row">
+          <a href="https://calendly.com/mikavdgun/discovery" target="_blank" rel="noopener" class="btn-primary">
+            <span data-nl="Kies Datum in Calendly ↗" data-en="Pick a Time on Calendly ↗">Kies Datum in Calendly ↗</span>
+          </a>
+          <a href="https://wa.me/31642671398" target="_blank" rel="noopener" class="btn-ghost">
+            <span>+31 (0)6 42 67 13 98</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 GUN Productions · Eindhoven, NL · Mika@Gun-productions.com</span>
+        <div style="display:flex;gap:1.25rem;">
+          <a href="https://www.instagram.com/gun_productions/" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:none;">Instagram ↗</a>
+          <a href="https://wa.me/message/4RQALGIZ5WHYG1" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:none;">WhatsApp ↗</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       TOP-LAYER CINEMA LIGHTBOX DIALOG
+       (modern-web-guidance: closedby="any" + showModal() + animated backdrop)
+       ===================================================================== -->
+  <dialog id="cinemaDialog" closedby="any" aria-labelledby="cinemaTitle">
+    <div class="dialog-inner">
+      <div class="dialog-topbar">
+        <div style="display:flex;align-items:center;gap:0.65rem;flex-wrap:wrap;">
+          <span id="cinemaBadge" class="format-pill">Cinema</span>
+          <strong id="cinemaTitle" style="font-family:var(--font-display);font-size:1.05rem;">Project Title</strong>
+          <span id="cinemaKpi" class="kpi-pill"></span>
+        </div>
+        <button type="button" id="dialogCloseBtn" class="dialog-icon-btn" aria-label="Close video player">✕ Sluiten</button>
+      </div>
+
+      <div id="dialogPlayerStage" class="dialog-player-stage"></div>
+
+      <div class="dialog-footerbar">
+        <div style="display:flex;gap:0.5rem;">
+          <button type="button" id="dialogPrevBtn" class="dialog-icon-btn">← Vorige</button>
+          <button type="button" id="dialogNextBtn" class="dialog-icon-btn">Volgende →</button>
+        </div>
+        <a href="https://calendly.com/mikavdgun/discovery" target="_blank" rel="noopener" class="btn-primary" style="padding:0.5rem 1.05rem;font-size:0.82rem;">
+          <span data-nl="Zulke video's voor mijn bedrijf ↗" data-en="Get videos like this ↗">Zulke video's voor mijn bedrijf ↗</span>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+
+  <!-- =====================================================================
+       GUN PRODUCTIONS STUDIO CHAT & AI CALL AGENT
+       (Dual-Mode: 1. Interactive Live Chat · 2. AI Voice Calling Agent)
+       ===================================================================== -->
+  <div id="studioChatWidget" class="studio-chat-widget">
+    <!-- Floating Launcher Pill -->
+    <button type="button" id="chatLauncherBtn" class="chat-launcher-btn" aria-label="Open GUN Studio Chat & AI Calling Agent" aria-expanded="false">
+      <div class="launcher-avatar-wrap">
+        <img src="https://gun-productions.com/wp-content/uploads/2024/02/Mika-scaled.jpg" alt="Mika van der Gun" class="launcher-avatar" onerror="this.src='https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837893-jx99hi?alt=media'" />
+        <span class="launcher-status-dot" aria-hidden="true"></span>
+      </div>
+      <div class="launcher-text-wrap">
+        <span class="launcher-title">Chat &amp; Bel Mika</span>
+        <span class="launcher-subtitle">AI Studio Desk · Online</span>
+      </div>
+      <div class="launcher-icon-badge">
+        <svg class="icon-chat" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        </svg>
+        <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </div>
+    </button>
+
+    <!-- Interactive Chat & Call Panel -->
+    <section id="studioChatPanel" class="studio-chat-panel" aria-label="Studio Chat and AI Voice Call Desk" style="display:none;">
+      <!-- Panel Header -->
+      <header class="chat-panel-header">
+        <div class="panel-header-info">
+          <div class="header-avatar-wrap">
+            <img src="https://gun-productions.com/wp-content/uploads/2024/02/Mika-scaled.jpg" alt="Mika" class="header-avatar" onerror="this.src='https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837893-jx99hi?alt=media'" />
+            <span class="header-pulse-dot" aria-hidden="true"></span>
+          </div>
+          <div>
+            <div class="panel-agent-name">Mika van der Gun <span class="ai-badge">AI Studio</span></div>
+            <div class="panel-agent-status" data-nl="Actief · Reactie binnen 2 min" data-en="Active · Reply within 2 min">Actief · Reactie binnen 2 min</div>
+          </div>
+        </div>
+        <button type="button" id="chatPanelCloseBtn" class="chat-panel-close-btn" aria-label="Close Chat Window">✕</button>
+      </header>
+
+      <!-- Mode Selector Tabs (Live Chat vs AI Voice Call) -->
+      <nav class="chat-mode-tabs" role="tablist" aria-label="Communication Options">
+        <button type="button" id="tabModeChat" class="mode-tab is-active" role="tab" aria-selected="true" data-mode="chat">
+          <span class="mode-tab-icon">💬</span>
+          <span data-nl="Live Chat Assistent" data-en="Live Chat Assistant">Live Chat Assistent</span>
+        </button>
+        <button type="button" id="tabModeCall" class="mode-tab" role="tab" aria-selected="false" data-mode="call">
+          <span class="mode-tab-icon">📞</span>
+          <span data-nl="AI Voice Call Agent" data-en="AI Voice Call Agent">AI Voice Call Agent</span>
+        </button>
+      </nav>
+
+      <!-- MODE 1: LIVE CHAT VIEW -->
+      <div id="chatViewMode" class="chat-view-container is-active" role="tabpanel">
+        <div id="chatMessagesList" class="chat-messages-list">
+          <div class="chat-bubble-row incoming">
+            <div class="chat-bubble incoming">
+              <span data-nl="Hoi! Welkom bij GUN Productions. Ik ben Mika's digitale assistent. Waar kan ik je vandaag mee helpen?" data-en="Hi! Welcome to GUN Productions. I'm Mika's digital assistant. How can I help your brand grow today?">Hoi! Welkom bij GUN Productions. Ik ben Mika's digitale assistent. Waar kan ik je vandaag mee helpen?</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div class="chat-quick-chips" id="chatQuickChips">
+          <button type="button" class="quick-chip" data-query="pakket">💰 <span data-nl="Wat kost een videodag?" data-en="What does a shoot day cost?">Wat kost een videodag?</span></button>
+          <button type="button" class="quick-chip" data-query="output">🎬 <span data-nl="Hoeveel video's in 1 dag?" data-en="How many videos in 1 day?">Hoeveel video's in 1 dag?</span></button>
+          <button type="button" class="quick-chip" data-query="ads">📈 <span data-nl="Doen jullie ook Meta Ads?" data-en="Do you manage Meta Ads?">Doen jullie ook Meta Ads?</span></button>
+          <button type="button" class="quick-chip" data-query="call">📅 <span data-nl="Plan gratis adviesgesprek" data-en="Book strategy session">Plan gratis adviesgesprek</span></button>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div id="chatTypingIndicator" class="chat-typing-indicator" aria-hidden="true" style="display:none;">
+          <span></span><span></span><span></span>
+          <span class="typing-label">Mika AI typt...</span>
+        </div>
+
+        <!-- Message Input Row -->
+        <form id="chatInputForm" class="chat-input-form">
+          <input type="text" id="chatInputField" class="chat-input-field" placeholder="Typ je vraag..." data-placeholder-nl="Typ je vraag..." data-placeholder-en="Type your question..." autocomplete="off" />
+          <button type="submit" id="chatSendBtn" class="chat-send-btn" aria-label="Verstuur bericht">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- MODE 2: AI VOICE CALL VIEW -->
+      <div id="callViewMode" class="call-view-container" role="tabpanel" style="display:none;">
+        <div class="call-card-hero">
+          <div class="call-avatar-ring">
+            <div class="call-avatar-pulse"></div>
+            <img src="https://gun-productions.com/wp-content/uploads/2024/02/Mika-scaled.jpg" alt="Mika Voice" class="call-avatar-img" onerror="this.src='https://cdn.framekit.ai/v0/b/digisell-io.appspot.com/o/users%2FeBCujQlsE0cWS5X8OyVGfSDZhgZ2%2F1791972837893-jx99hi?alt=media'" />
+          </div>
+
+          <div class="call-status-badge" id="callStatusBadge">
+            <span class="status-pulse-dot"></span>
+            <span id="callStatusText" data-nl="AI Voice Agent Klaar" data-en="AI Voice Agent Ready">AI Voice Agent Klaar</span>
+          </div>
+
+          <!-- Animated Audio Waveform -->
+          <div class="audio-waveform" id="audioWaveform" aria-hidden="true">
+            <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+            <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          </div>
+
+          <p class="call-desc" data-nl="Start een direct live audiogesprek met onze getrainde video-strateeg agent, of bel Mika rechtstreeks." data-en="Start an instant live audio call with our trained video-strategy AI agent, or call Mika directly.">
+            Start een direct live audiogesprek met onze getrainde video-strateeg agent, of bel Mika rechtstreeks.
+          </p>
+
+          <!-- Call Action Controls -->
+          <div class="call-actions-stack">
+            <button type="button" id="startAiCallBtn" class="call-primary-btn">
+              <span class="btn-call-icon">🎙️</span>
+              <span id="startAiCallText" data-nl="Start AI Voice Gesprek Nu" data-en="Start AI Voice Call Now">Start AI Voice Gesprek Nu</span>
+            </button>
+
+            <a href="tel:+31642671398" class="call-secondary-btn">
+              <span>📞</span>
+              <span data-nl="Bel Mika Direct (+31 6 42 67 13 98)" data-en="Call Mika Direct (+31 6 42 67 13 98)">Bel Mika Direct (+31 6 42 67 13 98)</span>
+            </a>
+          </div>
+
+          <!-- Quick Callback Form -->
+          <div class="callback-drawer">
+            <div class="callback-title" data-nl="⚡ Of vraag een directe terugbelactie aan:" data-en="⚡ Or request an instant callback:">⚡ Of vraag een directe terugbelactie aan:</div>
+            <form id="callbackForm" class="callback-form">
+              <input type="tel" id="callbackPhone" class="callback-input" placeholder="Jouw telefoonnummer (+31...)" required />
+              <button type="submit" id="callbackSubmitBtn" class="callback-btn" data-nl="Bel Mij Terug" data-en="Call Me Back">Bel Mij Terug</button>
+            </form>
+            <div id="callbackSuccessNotice" class="callback-success" style="display:none;" data-nl="✓ Verzoek ontvangen! Mika belt je z.s.m." data-en="✓ Received! Mika will call you shortly.">✓ Verzoek ontvangen! Mika belt je z.s.m.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
